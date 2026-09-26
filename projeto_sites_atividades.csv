@@ -1,0 +1,147 @@
+ts,lead_id,nome,telefone,tipo,etapa_de,etapa_para,mensagem_id,resumo,proxima_acao
+2026-09-25T15:00:13.881494+00:00,ps_b8c8a04fc8,Bruna Paiva,+5521997318227,outbound_inicial,novo,enviado,3EB0D452AA3D71DE562FEA,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-25T20:32:38+00:00,ps_d55b10a170,MAGIKARF / Garage 5.000,+5521970285382,outbound_inicial,novo,enviado,3EB054FBE530E9449C2FFE,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-25T20:32:38+00:00,ps_fcfa262171,Martelinho de Ouro Duque,+5521979004275,outbound_inicial,novo,enviado,3EB08008828230A13B9B2F,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T12:26:52+00:00,ps_02bf9d8dc8,Auto Parts Rio Serviço Automotivo,+5521991031157,sistema,novo,desativado,,número inválido/sem WhatsApp na rota verificada,não contatar
+2026-09-25T20:32:38+00:00,ps_197bb35a71,Milano Estética Automotiva,+552****1347,outbound_inicial,novo,enviado,3EB0255BA10BCCECCAEDB4,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-25T21:08:00+00:00,ps_9a9999b8d9,Truck Bem,+552****5672,outbound_inicial,novo,enviado,3EB055CDC237819FF6F41E,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-25T21:08:00+00:00,ps_b3528c95bb,Auto Pasqualle,+552****5854,outbound_inicial,novo,enviado,3EB07CDE5671F765388018,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-25T21:08:00+00:00,ps_83d726b9f2,Express Serviços Automotivos,+552****9430,outbound_inicial,novo,enviado,3EB09329FF6883706701B9,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T11:08:00+00:00,ps_be2079739e,MR Car Serviços Automotivos,+552****3090,outbound_inicial,novo,enviado,3EB05817D993B2215DFD7F,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T11:08:00+00:00,ps_d13c854525,NR Auto Diag,+552****5816,outbound_inicial,novo,enviado,3EB0DE738F8E80092A11AA,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T11:08:00+00:00,ps_c73f96338b,Retífica de Caixa de Marcha Shekinah,+552****2618,outbound_inicial,novo,enviado,3EB05FD8EE638FDF979184,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T12:07:29+00:00,ps_f8923a4117,CLF Brasil Martelinho de Ouro,+5521984027479,outbound_inicial,novo,enviado,3EB011F270F566E7D2060D,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T12:07:29+00:00,ps_14a917846f,Novo Local Reparo Automotivo,+5521997978039,outbound_inicial,novo,enviado,3EB05360EA28642EF75D9A,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T12:07:29+00:00,ps_44ee2cbc02,Vinficar Auto Center,+5521964492101,outbound_inicial,novo,enviado,3EB087153D405946B69667,Primeira abordagem enviada antes da criação do CRM.,monitorar resposta
+2026-09-26T11:13:33+00:00,ps_c73f96338b,Retífica de Caixa de Marcha Shekinah,+552****2618,inbound,enviado,enviado,A5160FD2C4A4515F6C51C016B1E99F75,‎Retifica De Caixas De Marcha Shekinah agradece seu contato. Como podemos ajudar?,avaliar resposta
+2026-09-26T11:13:35+00:00,ps_c73f96338b,Retífica de Caixa de Marcha Shekinah,+552****2618,inbound,enviado,enviado,A5A6BF0C282C7BCF123C778B3E168A25,Olá 👋🏾 no momento não estamos disponíveis mais deixe sua mensagem que responderemos assim que possível 🙏🏾,avaliar resposta
+2026-09-26T12:53:29+00:00,ps_c73f96338b,Retífica de Caixa de Marcha Shekinah,+552****2618,outbound_demo,enviado,qualificando,3EB0D4BE0D7FCBCBBA853C,Demo apresentada após resposta ao opener; envio verificado por readback.,monitorar resposta/interesse
+2026-09-26T12:08:18+00:00,ps_44ee2cbc02,Vinficar Auto Center,+5521964492101,inbound,enviado,enviado,ACC37A21E0CE3E277F9107034D51E14C,A vinficar está paralisada. Obrigado!,avaliar resposta
+2026-09-26T12:53:29+00:00,ps_44ee2cbc02,Vinficar Auto Center,+5521964492101,sistema,enviado,desativado,ACC37A21E0CE3E277F9107034D51E14C,Contato informou empresa paralisada/fechada; não contatar.,não contatar
+2026-09-26T11:07:55+00:00,ps_be2079739e,MR Car Serviços Automotivos,+552****3090,inbound,enviado,enviado,A5BF4E3128C43A4C951369F4A3BCB339,🚗 MRCAR – Atendimento Automático  Olá! No momento não conseguimos ouvir áudios nem atender ligações. Nosso atendimento está sendo realizado somente por mensagens de texto.  Envie sua dúvida ou solicitação por aqui que retornaremos o mais br,avaliar resposta
+2026-09-26T12:55:01+00:00,ps_be2079739e,MR Car Serviços Automotivos,+552****3090,outbound_demo,enviado,qualificando,3EB0CBBCD0418BAD368439,Demo apresentada após resposta ao opener; envio verificado por readback.,monitorar resposta/interesse
+2026-09-26T11:07:58+00:00,ps_d13c854525,NR Auto Diag,+552****5816,inbound,enviado,enviado,A593C0CD795DB6AC4C14AF89A6C162C4,Funcionamos de 8:00 as 17:00 de segunda a sexta-feira feira. Favor aguardar o horário comercial para retorno de contato.,avaliar resposta
+2026-09-26T11:07:58+00:00,ps_d13c854525,NR Auto Diag,+552****5816,inbound,enviado,enviado,A557873C8F9681F5FCB8F7D03E0C72AB,"Olá, como poderíamos ajudar? Meu nome é Taciana e sou responsavel pelo atendimento. Favor aguardar o retorno do contato e para facilitar o atendimento enviar: Ano, modelo e motor do veículo junto com a explicação. 😊🚘",avaliar resposta
+2026-09-26T12:55:01+00:00,ps_d13c854525,NR Auto Diag,+552****5816,outbound_demo,enviado,qualificando,3EB01663AF828F7A73DA3F,Demo apresentada após resposta ao opener; envio verificado por readback.,monitorar resposta/interesse
+2026-09-26T13:08:54+00:00,ps_cffd1c359e,Oficina do Freitas,+552****5544,outbound_inicial,novo,enviado,3EB0DFA62FBA713DAAB06E,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T13:08:54+00:00,ps_0d7ae0685d,Auto Center Parada Legal,+552****3340,outbound_inicial,novo,enviado,3EB0E20AD1C9F83AF4E022,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T13:08:54+00:00,ps_99f1bfcb9b,Retestilha Centro Automotivo,+552****0102,outbound_inicial,novo,enviado,3EB0F86B00064E6759B656,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T13:08:07+00:00,ps_cffd1c359e,Oficina do Freitas,+552****5544,inbound,enviado,enviado,A537DB6AA2D99507E8635550B6B0E3E1,"Olá, no momento estamos ocupados, mas logo responderemos. Adiante seu assunto por texto, não envie mensagens de áudio. Horário de 08:30 às 17:30",avaliar resposta
+2026-09-26T13:13:10+00:00,ps_cffd1c359e,Oficina do Freitas,+552****5544,outbound_demo,enviado,qualificando,3EB01A3B39C0C8DF0CD22F,Demo apresentada após resposta ao opener; envio verificado por readback.,monitorar resposta/interesse
+2026-09-26T13:08:14+00:00,ps_99f1bfcb9b,Retestilha Centro Automotivo,+552****0102,inbound,enviado,enviado,2A65B59E1BD812506DEB,"Olá! Bem-vindo a RETESTILHA! Ficamos felizes em atendê-lo. Para inciar nosso atendimento, como podemos ajudá-lo?",avaliar resposta
+2026-09-26T13:13:13+00:00,ps_99f1bfcb9b,Retestilha Centro Automotivo,+552****0102,outbound_demo,enviado,qualificando,3EB004C3D23ABD9E601CE4,Demo apresentada após resposta ao opener; envio verificado por readback.,monitorar resposta/interesse
+2026-09-26T13:08:07+00:00,ps_cffd1c359e,Oficina do Freitas,+552****5544,inbound,qualificando,qualificando,A5B958208CB35A4354D1FE31CE2D792D,"Olá, no momento estamos ocupados, mas logo responderemos. Adiante seu assunto por texto, não envie mensagens de áudio. Horário de 08:30 às 17:30",avaliar resposta
+2026-09-26T13:32:08+00:00,ps_cffd1c359e,Oficina do Freitas,+552****5544,sistema,qualificando,qualificando,A5B958208CB35A4354D1FE31CE2D792D,"Resposta registrada sem envio automático: Olá, no momento estamos ocupados, mas logo responderemos. Adiante seu assunto por texto, não envie mensagens de áudio. Horário de 08:30 às 17:30",aguardar contexto comercial claro
+2026-09-26T13:09:32+00:00,ps_99f1bfcb9b,Retestilha Centro Automotivo,+552****0102,inbound,qualificando,qualificando,2A64248A00EBC806E575,"Bom dia, pois não !",avaliar resposta
+2026-09-26T13:32:08+00:00,ps_99f1bfcb9b,Retestilha Centro Automotivo,+552****0102,sistema,qualificando,qualificando,2A64248A00EBC806E575,"Resposta registrada sem envio automático: Bom dia, pois não !",aguardar contexto comercial claro
+2026-09-26T14:10:32+00:00,ps_e2abd7b71b,FM Sound Som e Acessórios,+552****2956,outbound_inicial,novo,enviado,3EB0DDFB907DA38A50316C,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T14:10:32+00:00,ps_ca45d35a54,Auto Elétrico J & D,+552****5456,outbound_inicial,novo,enviado,3EB0101B4066E0F59CD184,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T14:10:32+00:00,ps_63db0742dd,Box Car Oficina Mecânica,+552****1626,sistema,novo,desativado,,Número inválido/sem WhatsApp na rota verificada; não enviado.,não contatar
+2026-09-26T14:10:32+00:00,ps_4a6e81ef60,Juninho Mecânico,+552****3822,outbound_inicial,novo,enviado,3EB05FDD5A5F928A8B6154,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T15:08:20+00:00,ps_e4a1f2b301,Adriano Reboque,+552****5699,outbound_inicial,novo,enviado,3EB0AD6D7B9D7BBC1F04A9,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T15:08:20+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,outbound_inicial,novo,enviado,3EB0ADC945C49DE16066B9,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T15:08:20+00:00,ps_9f0c3a5b22,Genesis Capotaria,+552****8434,sistema,novo,desativado,,Dois números públicos testados (99938-8434 e 99716-5141) retornaram 'exists:false' na Evolution; não enviado.,não contatar
+2026-09-26T15:08:20+00:00,ps_3d5e8f6a13,Auto Center Rodrigo,+552****8030,outbound_inicial,novo,enviado,3EB0BCD62F436534E95091,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado.,monitorar resposta
+2026-09-26T15:48:43+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,inbound,enviado,enviado,A5DA579065E58FD8DC4D050945A0E5AA,Boa tarde sobre radiador,avaliar resposta
+2026-09-26T15:48:43+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,inbound,enviado,enviado,A5D3E789CF7845CD61C1760997FB1F8F,Cm posso ajudar,avaliar resposta
+2026-09-26T15:48:43+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,outbound_curiosidade,enviado,qualificando,3EB02B85DAA8BBC9102C05,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T15:48:43+00:00,ps_ca45d35a54,Auto Elétrico J & D,+552****5456,inbound,enviado,enviado,ACD87222455C4B620234BC5BBC41DCE3,Não meu irmão isso e só com meu filho,avaliar resposta
+2026-09-26T15:48:43+00:00,ps_ca45d35a54,Auto Elétrico J & D,+552****5456,inbound,enviado,enviado,AC6804F7C8C5260F7C317FB93D9B60F9,E J&D não existe mais,avaliar resposta
+2026-09-26T15:48:43+00:00,ps_ca45d35a54,Auto Elétrico J & D,+552****5456,sistema,enviado,desativado,AC6804F7C8C5260F7C317FB93D9B60F9,Contato informou que a empresa não existe mais; não contatar.,não contatar
+2026-09-26T16:06:05+00:00,ps_feee96b5b9,SL Mecânica,+552****8568,outbound_inicial,novo,enviado,3EB0084B0224A288A90007,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado (DELIVERY_ACK).,monitorar resposta
+2026-09-26T16:06:05+00:00,ps_378ccebfd3,Preto Auto Mecânica,+552****1791,outbound_inicial,novo,enviado,3EB007B3F8DAEAFCA0E0A2,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado (DELIVERY_ACK).,monitorar resposta
+2026-09-26T16:06:05+00:00,ps_25249cc29b,J.E. Mecânica,+552****4653,outbound_inicial,novo,enviado,3EB02E7BC0A6262172C561,Primeira abordagem enviada sem link; envio aceito pela Evolution e readback do outbound verificado (DELIVERY_ACK).,monitorar resposta
+2026-09-26T15:53:52+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,inbound,qualificando,qualificando,A5D60443AC37302218E05B38894B8093,Obrigado,avaliar resposta
+2026-09-26T15:54:40+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,inbound,qualificando,qualificando,A5EDF4A4A0E7CA58869E2C8FA4A42D95,O que já tenho está bom obrigado,avaliar resposta
+2026-09-26T16:07:54+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,sistema,qualificando,qualificando,A5EDF4A4A0E7CA58869E2C8FA4A42D95,Resposta sem intenção comercial clara; sem envio automático: O que já tenho está bom obrigado,aguardar contexto comercial claro
+2026-09-26T16:08:21+00:00,ps_7c92e6d410,JM Radiadores,+552****7613,sistema,qualificando,nao_converteu,A5EDF4A4A0E7CA58869E2C8FA4A42D95,Classificação corrigida: “O que já tenho está bom obrigado” = negativa/sem interesse; sem novo envio.,não seguir agora
+2026-09-26T17:07:34+00:00,ps_4701282f02,Klinicá Dermatologia e Estética,+5521****1068,outbound_inicial,novo,enviado,3EB0D2DFF2EA53E94A17A8,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T17:07:36+00:00,ps_ce1208a456,Vip Aesthetic Barra da Tijuca,+5521****8645,outbound_inicial,novo,enviado,3EB02B55B38C732575D01C,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T17:07:40+00:00,ps_9676faf548,Companhia da Beleza RJ,+5521****4547,outbound_inicial,novo,enviado,3EB0581B7FD2F961F74A2C,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T17:07:50+00:00,ps_4701282f02,Klinicá Dermatologia e Estética,+5521****1068,inbound,enviado,enviado,6A1534BD8F49527AD248,"Olá, seja muito bem-vindo à Klinicá Dermatologia Boutique. Agradecemos seu contato, darei início ao seu atendimento! Como posso ajudar?",avaliar resposta
+2026-09-26T17:07:51+00:00,ps_4701282f02,Klinicá Dermatologia e Estética,+5521****1068,inbound,enviado,enviado,6AED934412D9A6CAC880,Agradecemos sua mensagem. Não estamos disponíveis no momento. Nosso horário de atendimento é de segunda-feira à sexta-feira de 09:00h às 18:00h. Para conhecer mais sobre nosso trabalho acesse o link abaixo: https://www.doctoralia.com.br/z/5,avaliar resposta
+2026-09-26T17:13:36+00:00,ps_4701282f02,Klinicá Dermatologia e Estética,+5521****1068,sistema,enviado,enviado,6AED934412D9A6CAC880,Resposta automática do negócio; sem envio para não pular estágio.,aguardar resposta humana
+2026-09-26T17:07:54+00:00,ps_ce1208a456,Vip Aesthetic Barra da Tijuca,+5521****8645,inbound,enviado,enviado,3EB0EDADAA807A47FB4F23,"Olá, tudo bem? Me chamo Grazi, sou consultora da clínica Vip Aesthetic. Vi que você entrou em contato conosco e será um prazer te atender.
+
+Você poderia, por gentileza, me informar o seu nome, para melhor atendimento ?",avaliar resposta
+2026-09-26T17:13:39+00:00,ps_ce1208a456,Vip Aesthetic Barra da Tijuca,+5521****8645,outbound_curiosidade,enviado,qualificando,3EB0F228452961A94E9AF9,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T17:07:39+00:00,ps_9676faf548,Companhia da Beleza RJ,+5521****4547,inbound,enviado,enviado,A5D9A6921ED0F897E78EA91EC7E3898B,"Seja bem vinda(o) a Companhia da Beleza! ✨️
+Tudo bem? 
+Gostaria de conhecer um pouco mais sobre você, qual tipo de tratamento estético você busca atualmente, facial, corporal, gordura localizada, flacidez, celulite, inchaços ou outros?
+
+Ja ",avaliar resposta
+2026-09-26T17:13:41+00:00,ps_9676faf548,Companhia da Beleza RJ,+5521****4547,outbound_curiosidade,enviado,qualificando,3EB0CBA1E347BC538F4C2F,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T18:10:12+00:00,ps_d8481ed140,ESTÉTICA TANNURI - Niterói RJ,+5521****3253,outbound_inicial,novo,enviado,3EB09D60A64C5201339D42,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T18:10:16+00:00,ps_bbe843d3ef,Sobrancelhas Design Niteroi,+5521****4899,outbound_inicial,novo,enviado,3EB0D6E1AACCFC74CC02C1,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T18:10:20+00:00,ps_fb5a31e51d,Glam Campo Grande,+5521****5449,outbound_inicial,novo,enviado,3EB096B4F8BD240CF12B3B,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado.,monitorar resposta
+2026-09-26T18:10:12+00:00,ps_d8481ed140,ESTÉTICA TANNURI - Niterói RJ,+5521****3253,inbound,enviado,enviado,A5B1873A8A7353720A4C24D99350F72F,"Bem-vinda à Estética Tannuri!
+Esse é o telefone da unidade Centro
+
+Nosso atendimento é exclusivo para o público feminino, oferecendo tratamentos personalizados para realçar sua beleza e bem-estar.
+
+🕘 Horário de Funcionamento:
+✅ Segunda a Se",avaliar resposta
+2026-09-26T18:18:40+00:00,ps_d8481ed140,ESTÉTICA TANNURI - Niterói RJ,+5521****3253,sistema,enviado,enviado,A5B1873A8A7353720A4C24D99350F72F,Resposta automática do negócio; sem envio para não pular estágio.,aguardar resposta humana
+2026-09-26T18:15:31+00:00,ps_bbe843d3ef,Sobrancelhas Design Niteroi,+5521****4899,inbound,enviado,enviado,A557C50A3D779F582532A5547C1EDC5D,"Boa tarde
+Claro,  pode falar  por favor",avaliar resposta
+2026-09-26T18:18:42+00:00,ps_bbe843d3ef,Sobrancelhas Design Niteroi,+5521****4899,outbound_curiosidade,enviado,qualificando,3EB01C801878A3275A4AA6,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T18:10:18+00:00,ps_fb5a31e51d,Glam Campo Grande,+5521****5449,inbound,enviado,enviado,A537AAC55C9267DFDF08EF8C7BE34D36,"Olá,tudo bem 😊 
+Somos do Glam Salão e Esmalteria e estamos a sua disposição para exaltar ainda mais sua beleza.
+Vem garantir seu horário conosco 🥰
+Através do link abaixo você pode garantir seu horário!👇
+https://agendeonline.salonsoft.com.br",avaliar resposta
+2026-09-26T18:10:36+00:00,ps_fb5a31e51d,Glam Campo Grande,+5521****5449,inbound,enviado,enviado,A5AFC53E9ACD45AFE13EF65814AE0DC8,Olá boa tarde,avaliar resposta
+2026-09-26T18:18:45+00:00,ps_fb5a31e51d,Glam Campo Grande,+5521****5449,outbound_curiosidade,enviado,qualificando,3EB0FC75BA93048CC877E0,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T19:05:51+00:00,ps_14f45e40a9,Gysele Salgado Estética Avançada,+5521****0979,outbound_inicial,novo,enviado,3EB00C61BEF5654D379F6A,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra estética avançada em Niterói/São Gonçalo e agendamento pelo WhatsApp; DentMap lista endereço e avaliação,monitorar resposta
+2026-09-26T19:05:54+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,outbound_inicial,novo,enviado,3EB0A8CA5BB60A2C2E98F0,"Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra Cílios/Unhas/Sobrancelhas/Tranças/Maquiagem, 249 posts, 2,4K seguidores, Campo Grande/RJ e wa.me/5521986",monitorar resposta
+2026-09-26T19:05:58+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,outbound_inicial,novo,enviado,3EB07CDA14AD089772F6A5,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra Massagens/Estética Facial/Day Spa/Acupuntura em Icaraí com wa.me/5521971863224; Fresha lista endereço no,monitorar resposta
+2026-09-26T19:05:52+00:00,ps_14f45e40a9,Gysele Salgado Estética Avançada,+5521****0979,inbound,enviado,enviado,A5EAB552E03634B41DE600F605FF5A69,"Seja bem vinda! 🌻
+ Nossa missão aqui na Dra Gysele é cuidar, acolher e buscar a sua melhor versão. 🥰
+Já vamos te atender, do jeito que você merece. 💙",avaliar resposta
+2026-09-26T19:05:53+00:00,ps_14f45e40a9,Gysele Salgado Estética Avançada,+5521****0979,inbound,enviado,enviado,A5A065ED9587A685C4952DFFA12D1569,"No momento não estamos em funcionamento.🍀
+Deixe seu nome que já  irei te atender do jeito que você merece.🙏",avaliar resposta
+2026-09-26T19:07:33+00:00,ps_14f45e40a9,Gysele Salgado Estética Avançada,+5521****0979,outbound_curiosidade,enviado,qualificando,3EB034C2A4784FB41D1594,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T19:05:57+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,6A7C45FCD6BB345BDC63,"Olá,
+
+*Seja muito bem-vindo(a) ao Espaço Wellness SPA Urbano - Niterói* 💆🏻💫
+
+Nossos atendimentos são realizados exclusivamente com hora marcada.
+
+Agendamentos e informações:
+
+*Das 14h00 às 20h00*",avaliar resposta
+2026-09-26T19:07:33+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,sistema,enviado,enviado,6A7C45FCD6BB345BDC63,Resposta automática do negócio; sem envio para não pular estágio.,aguardar resposta humana
+2026-09-26T19:08:11+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,2ADC098ECB78D1463E50,Boa tarde,avaliar resposta
+2026-09-26T19:08:53+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,2A48704785592346B91D,Oi Carlos,avaliar resposta
+2026-09-26T19:09:04+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,2A14C4DF660CC81BFF37,"Prazer, eu sou Ana",avaliar resposta
+2026-09-26T19:09:14+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,2AB51BCDAE51C12B8CBA,Como posso te ajudar?,avaliar resposta
+2026-09-26T19:21:54+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,enviado,enviado,2A75B5E13FC253CDD5F2,"Bem-vindo ao Espaço Wellness. ✨
+
+Oferecemos momentos de pausa, cuidado e renovação. Cada experiência é preparada com carinho, utilizando óleos essenciais, velas decorativas e uma atmosfera tranquila para que sua única preocupação seja relax",avaliar resposta
+2026-09-26T19:24:49+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,sistema,enviado,enviado,2A75B5E13FC253CDD5F2,Resposta automática do negócio; sem envio para não pular estágio.,aguardar resposta humana
+2026-09-26T19:26:16+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,outbound_curiosidade,enviado,qualificando,3EB0BCFB877535133D226B,Resposta humana genuína classificada a partir de “Como posso te ajudar?”; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T19:32:34+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,inbound,enviado,enviado,3EB0715A3392EA6AC155C4,ola boa tarde,avaliar resposta
+2026-09-26T19:32:45+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,inbound,enviado,enviado,3EB0C30C695B5587CF241F,"sim,pode falar",avaliar resposta
+2026-09-26T19:43:36+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,outbound_curiosidade,enviado,qualificando,3EB0AC86705152277E4FCE,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T19:38:49+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,inbound,qualificando,qualificando,2A2FAD57671F865899EB,Eu agradeço mas no momento não temos interesse,avaliar resposta
+2026-09-26T19:43:39+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,outbound_demo,qualificando,negociando,3EB0A2174B012793F0C4DD,Interesse classificado; demo apresentada (Estágio 4); envio verificado por readback.,monitorar engajamento/preço/call
+2026-09-26T19:44:37+00:00,ps_b49bcd89d2,Espaço Wellness Spa Urbano,+5521****3224,sistema_correcao,negociando,nao_converteu,2A2FAD57671F865899EB,Correção: “Eu agradeço mas no momento não temos interesse” = negativa; demo enviada por classificação anterior foi indevida; sem novos envios. Script corrigido para não tratar “não temos interesse” como interesse.,não seguir agora
+2026-09-26T19:45:46+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,inbound,qualificando,qualificando,2AE2C71FC3771DE3A9D9,"Olá! ✨
+
+Seja muito bem-vinda ao Studio Olívia Rodrigues Beauty.
+Será um prazer cuidar de você!
+Se tiver qualquer dúvida sobre nossos serviços, fique à vontade para consultar nosso catálogo 
+—https://wa.me/c/5521986084789
+
+Ele vai te ajudar ",avaliar resposta
+2026-09-26T20:00:53+00:00,ps_0e6af9266b,Olivia Rodrigues Beauty,+5521****4789,sistema,qualificando,qualificando,2AE2C71FC3771DE3A9D9,"Resposta sem intenção comercial clara; sem envio automático: Olá! ✨
+
+Seja muito bem-vinda ao Studio Olívia Rodrigues Beauty.
+Será um prazer cuidar de você!
+Se tiver qualquer dúvida sobre nossos serviços, fique à vontade p",aguardar contexto comercial claro
+2026-09-26T20:05:24+00:00,ps_7614c1afe1,Abreu Estética,+5521****4480,outbound_inicial,novo,enviado,3EB0B790607A3ABBB5BA5C,"Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra @abreu.estetica com micropigmentação, harmonização facial, Estácio/RJ e wa.me/5521992144480; Casa dos Dados lista DARLA S. ABREU ESTETICA LTDA, Haddock Lobo 409, Estácio, atividade de estética e WhatsApp.",monitorar resposta
+2026-09-26T20:05:24+00:00,ps_4b1ce96842,Jaqueline Lima Estética,+5521****7427,outbound_inicial,novo,enviado,3EB049F3B3E0FA9B98041C,"Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra @jaque_limaestetica como Jaqueline Lima | ESTÉTICA, especialista em estética facial e corporal, protocolos personalizados, Madureira/Rio de Janeiro e wa.me/5521993667427.",monitorar resposta
+2026-09-26T20:05:24+00:00,ps_36a40ee9e5,Estética Dental Niterói,+5521****3093,sistema,novo,desativado,,Falha no envio/readback: <HTTPError 400: 'Bad Request'>,revisar rota/telefone
+2026-09-26T20:05:23+00:00,ps_4b1ce96842,Jaqueline Lima Estética,+5521****7427,inbound,enviado,enviado,6A1D1AB4FD40E84B77DA,Jaqueline Lima agradece seu contato. Como podemos ajudar?,avaliar resposta
+2026-09-26T20:05:43+00:00,ps_4b1ce96842,Jaqueline Lima Estética,+5521****7427,outbound_curiosidade,enviado,qualificando,3EB028D45ACB4C9B259944,Resposta humana genuína classificada; enviada pergunta de curiosidade (Estágio 3); envio verificado por readback.,monitorar resposta
+2026-09-26T20:07:42+00:00,ps_18b91eb011,Rio Arte Leblon,+5521****5619,outbound_inicial,novo,enviado,3EB0E20AB3C0E102C59610,"Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. Evidência: Viralist mostra @rioarteleblon como dermatologia e estética, protocolos faciais e corporais, Linktree e wa.me/5521967635619 para agendamento.",monitorar resposta
