@@ -84,7 +84,7 @@ def classify_stage1(text):
     t=norm(text)
     bot_terms=['assistente virtual','chatbot','sou uma ia','sou uma inteligencia artificial','atendimento automatizado por ia','bot de atendimento','robô','robo']
     if any(x in t for x in bot_terms): return 'bot_terceiro'
-    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','no momento nao estamos em funcionamento','ja vamos te atender','deixe seu nome','deixe sua mensagem','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo','bem vinda','seja bem vinda','seja bem vindo','agradece seu contato','como podemos ajudar']
+    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','no momento nao estamos em funcionamento','ja vamos te atender','deixe seu nome','deixe sua mensagem','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo','bem vinda','bem-vinda','seja bem vinda','seja bem vindo','seja muito bem vinda','seja muito bem vindo','seja muito bem-vinda','seja muito bem-vindo','agradece seu contato','como podemos ajudar','nosso espaco foi criado','nosso espaço foi criado','sera um prazer cuidar','será um prazer cuidar','para melhor atendimento']
     if any(x in t for x in auto_terms): return 'auto_negocio'
     stop_terms=['nao existe mais','empresa fechou','fechado','paralisada','paralisado','numero errado','nao conheco','nao e aqui','não é aqui']
     if any(norm(x) in t for x in stop_terms): return 'stop'
