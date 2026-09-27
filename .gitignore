@@ -3,3 +3,5 @@ projeto_sites_crm.csv
 projeto_sites_atividades.csv
 projeto_sites_crm.xlsx
 *.tmp.xlsx
+__pycache__/
+*.pyc
