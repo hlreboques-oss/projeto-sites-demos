@@ -84,7 +84,7 @@ def classify_stage1(text):
     t=norm(text)
     bot_terms=['assistente virtual','chatbot','sou uma ia','sou uma inteligencia artificial','atendimento automatizado por ia','bot de atendimento','robô','robo']
     if any(x in t for x in bot_terms): return 'bot_terceiro'
-    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','deixe sua mensagem','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo']
+    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','no momento nao estamos em funcionamento','ja vamos te atender','deixe seu nome','deixe sua mensagem','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo','bem vinda','seja bem vinda','seja bem vindo','agradece seu contato','como podemos ajudar']
     if any(x in t for x in auto_terms): return 'auto_negocio'
     stop_terms=['nao existe mais','empresa fechou','fechado','paralisada','paralisado','numero errado','nao conheco','nao e aqui','não é aqui']
     if any(norm(x) in t for x in stop_terms): return 'stop'
@@ -92,10 +92,17 @@ def classify_stage1(text):
 
 def classify_response(text):
     t=norm(text)
-    if any(x in t for x in ['pare','parar','remova','nao quero','sem interesse','nao tenho interesse','nao faz sentido','obrigado nao','dispenso','esta bom obrigado','está bom obrigado','o que ja tenho esta bom','o que já tenho está bom']): return 'negativo'
+    neg_patterns=[
+        'pare','parar','remova','nao quero','sem interesse','nao tenho interesse','nao temos interesse',
+        'nao ha interesse','nao possuo interesse','nao temos necessidade','nao preciso','nao precisamos',
+        'nao faz sentido','obrigado nao','dispenso','esta bom obrigado','está bom obrigado',
+        'o que ja tenho esta bom','o que já tenho está bom'
+    ]
+    if any(x in t for x in neg_patterns): return 'negativo'
     if any(x in t for x in ['ja tenho site','temos site','tenho site','site ja','ja possuo site']): return 'ja_tem_site'
     if any(x in t for x in ['valor','preco','preço','quanto','orçamento','orcamento','forma de pagamento']): return 'preco_interesse'
-    if any(x in t for x in ['sim','quero','manda','envia','pode mandar','faz sentido','interesse','interessante','como assim','me mostra','mostrar','gostei','legal','claro','ok','pode ser','vamos','call','ligacao','explica','explicar']): return 'interesse'
+    positive_patterns=['sim','quero','manda','envia','pode mandar','faz sentido','interessante','como assim','me mostra','mostrar','gostei','legal','claro','ok','pode ser','vamos','call','ligacao','explica','explicar']
+    if any(x in t for x in positive_patterns) or re.search(r'(^|\b)(tenho|temos|possuo|possuimos) interesse(\b|$)', t): return 'interesse'
     if '?' in text: return 'interesse'
     return 'neutro'
 
@@ -157,7 +164,9 @@ def main():
             rem=key.get('remoteJid') or ''
             alt=key.get('remoteJidAlt') or ''
             if rem!=remote and alt!=remote: continue
-            if msg_ts(m) + 2 < last_out: continue
+            # Evolution/CRM timestamps can differ by a few seconds on immediate auto-replies.
+            # Keep a 30s grace window so business greetings right after the opener are logged.
+            if msg_ts(m) + 30 < last_out: continue
             txt=extract_text(m).strip()
             if txt: relevant.append(m)
         if not relevant: continue
@@ -170,7 +179,31 @@ def main():
         old_etapa=lead.get('etapa')
         remote_actual=(newest.get('key') or {}).get('remoteJid') or remote
         if stage<=1:
-            cls=classify_stage1(txt)
+            # If an automatic greeting is followed by a genuine human reply and later
+            # another canned/autopromo message, continue from the human reply instead
+            # of letting the newest automated-looking text mask the human response.
+            stage1_choices=[]
+            for cand in relevant:
+                ctxt=extract_text(cand).strip()
+                if not ctxt: continue
+                ccls=classify_stage1(ctxt)
+                stage1_choices.append((ccls, cand, ctxt))
+            chosen=None
+            for ccls,cand,ctxt in stage1_choices:
+                if ccls in ('bot_terceiro','stop'):
+                    chosen=(ccls,cand,ctxt); break
+            if chosen is None:
+                for ccls,cand,ctxt in reversed(stage1_choices):
+                    if ccls=='humano':
+                        chosen=(ccls,cand,ctxt); break
+            if chosen is None and stage1_choices:
+                chosen=stage1_choices[-1]
+            if chosen:
+                cls, chosen_msg, txt = chosen
+                mid=(chosen_msg.get('key') or {}).get('id') or chosen_msg.get('id') or mid
+                remote_actual=(chosen_msg.get('key') or {}).get('remoteJid') or remote_actual
+            else:
+                cls=classify_stage1(txt)
             if cls=='bot_terceiro':
                 lead.update(etapa='desativado',motivo_etapa='respondido por IA/bot de terceiro',abordagem_status='resposta_recebida_desativado',last_inbound_at=now(),updated_at=now(),notes=((lead.get('notes') or '')+'\nResposta: '+txt).strip())
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'desativado','mensagem_id':mid,'resumo':'Respondido por IA/bot de terceiro; conversa parada.','proxima_acao':'não contatar'})
