@@ -281,3 +281,30 @@ Você pode se dar de presente ou até mesmo presentear aquela pessoa especial �
 2026-09-28T11:09:44+00:00,ps_pamela_lemos_hof01,Drª Pâmela Lemos | Harmonização Facial - Niterói/RJ,+5521****3209,outbound_inicial,novo,enviado,3EB0CF95CF4E467FEEF047,Primeira abordagem já existente no histórico; readback do outbound verificado. etiqueta prospecção bloqueada,monitorar resposta
 2026-09-28T11:09:45+00:00,ps_monique_amorim_estetica01,Dra. Monique Amorim | Biomédica Esteta,+5521****0828,outbound_inicial,novo,enviado,3EB042801B14FB7FFB9515,Primeira abordagem já existente no histórico; readback do outbound verificado. etiqueta prospecção bloqueada,monitorar resposta
 2026-09-28T11:09:49+00:00,ps_pedro_kita_estetica01,Dr. Pedro Kita | CRBM 69267,+5521****7938,outbound_inicial,novo,enviado,3EB0DEB7A4AFC4F22EA2F5,Primeira abordagem sem link enviada; readback do outbound verificado. etiqueta prospecção bloqueada,monitorar resposta
+2026-09-28T11:20:49+00:00,ps_edd70237ca,GoLaser - Freguesia/RJ,+5521****0856,inbound,enviado,enviado,3EB02428EA78E5FC09C334,Olá Bom dia!,avaliar resposta
+2026-09-28T11:21:06+00:00,ps_edd70237ca,GoLaser - Freguesia/RJ,+5521****0856,inbound,enviado,enviado,3EB0C7F99E4F44DC7649AE,Me chamo |Giovanna aqui da Leunique e vou dar continuidade ao seu atendimento,avaliar resposta
+2026-09-28T11:21:24+00:00,ps_edd70237ca,GoLaser - Freguesia/RJ,+5521****0856,inbound,enviado,enviado,3EB02E7EBB979B97FD90D1,claro!,avaliar resposta
+2026-09-28T11:21:36+00:00,ps_edd70237ca,GoLaser - Freguesia/RJ,+5521****0856,inbound,enviado,enviado,3EB02674A226D6B1B7926D,O senhor já realizou a depilação a laser alguma vez ?,avaliar resposta
+2026-09-28T11:26:40+00:00,ps_edd70237ca,GoLaser - Freguesia/RJ,+5521****0856,outbound_demo,enviado,qualificando,3EB0AA3699727C2DD437BB,Resposta humana genuína classificada; enviada segunda mensagem obrigatória com demo (Estágio 2); envio verificado por readback.,monitorar interação com demo
+2026-09-28T11:21:12+00:00,ps_62317d19f3,Kibonita Studio de Beleza,+5521****1379,inbound,enviado,enviado,2A9F7309BDAD8032223E,"Olá, bom dia! Sou a kelly
+Como posso ajudar?🥰",avaliar resposta
+2026-09-28T11:26:43+00:00,ps_62317d19f3,Kibonita Studio de Beleza,+5521****1379,outbound_demo,enviado,qualificando,3EB07977E31B145E8B40D7,Resposta humana genuína classificada; enviada segunda mensagem obrigatória com demo (Estágio 2); envio verificado por readback.,monitorar interação com demo
+2026-09-28T11:20:26+00:00,ps_monique_amorim_estetica01,Dra. Monique Amorim | Biomédica Esteta,+5521****0828,inbound,enviado,enviado,A5725368F1BDD5D0D7341039FE53E532,‎Dra Monique Amorim agradece seu contato. Como posso ajudar?,avaliar resposta
+2026-09-28T11:26:43+00:00,ps_monique_amorim_estetica01,Dra. Monique Amorim | Biomédica Esteta,+5521****0828,sistema,enviado,enviado,A5725368F1BDD5D0D7341039FE53E532,Resposta automática do negócio; sem envio para não pular estágio.,aguardar resposta humana
+2026-09-28T11:37:34+00:00,ps_62317d19f3,Kibonita Studio de Beleza,+5521****1379,inbound,qualificando,qualificando,2A0D75F672DC65D9EBB9,Vou enviar para a responsável,avaliar resposta
+2026-09-28T11:43:28+00:00,ps_62317d19f3,Kibonita Studio de Beleza,+5521****1379,outbound_ia_reveal,qualificando,negociando,3EB074A1142743D56FD03D,Engajamento real com demo; revelação de IA (Estágio 3) enviada; readback verificado.,conduzir explicação/call/preço
+2026-09-28T11:29:43+00:00,ps_clinicaarthys_barra01,Clínica Arthys Barra,+5521****5977,inbound,enviado,enviado,A567487694CB8C42A39063B487DD8733,"Bom dia, Carlos",avaliar resposta
+2026-09-28T11:29:57+00:00,ps_clinicaarthys_barra01,Clínica Arthys Barra,+5521****5977,inbound,enviado,enviado,A50976BA529FD70CD43AA2E2B0286E20,"Me chamo Marcela, tudo bem?",avaliar resposta
+2026-09-28T11:30:21+00:00,ps_clinicaarthys_barra01,Clínica Arthys Barra,+5521****5977,inbound,enviado,enviado,A5960D30EEDD519915F79533928DD253,Qual seria sua dúvida?,avaliar resposta
+2026-09-28T11:43:31+00:00,ps_clinicaarthys_barra01,Clínica Arthys Barra,+5521****5977,outbound_demo,enviado,qualificando,3EB0B1E97301734325C6BC,Resposta humana genuína classificada; enviada segunda mensagem obrigatória com demo (Estágio 2); envio verificado por readback.,monitorar interação com demo
+2026-09-28T11:33:13+00:00,ps_pamela_lemos_hof01,Drª Pâmela Lemos | Harmonização Facial - Niterói/RJ,+5521****3209,inbound,enviado,enviado,2A1D32B23C55DFCAC7AB,"Bom dia, Carlos! 
+
+Que bom receber seu contato! ✨
+
+Me chamo Pamella Alves, serei a responsável pelo seu atendimento.
+
+Em que posso ajudar?",avaliar resposta
+2026-09-28T11:43:33+00:00,ps_pamela_lemos_hof01,Drª Pâmela Lemos | Harmonização Facial - Niterói/RJ,+5521****3209,outbound_demo,enviado,qualificando,3EB0598F8998B1403626AA,Resposta humana genuína classificada; enviada segunda mensagem obrigatória com demo (Estágio 2); envio verificado por readback.,monitorar interação com demo
+2026-09-28T12:06:10+00:00,ps_e001def320,Pri Mattos | Estrias & Estética,+5521****8005,outbound_inicial,novo,enviado,3EB0AD3DD17D603B4238C6,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. etiqueta prospecção bloqueada,monitorar resposta
+2026-09-28T12:06:13+00:00,ps_c83cfc663f,Júlia Moutta,+5521****4887,outbound_inicial,novo,enviado,3EB0A728840289DB51064C,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. etiqueta prospecção bloqueada,monitorar resposta
+2026-09-28T12:06:16+00:00,ps_1b06aa1c55,Dra. Cristiane Malagutti | Odontologia Estética,+5521****1102,outbound_inicial,novo,enviado,3EB081092D957EE7B02C1A,Primeira abordagem sem link enviada; Evolution aceitou e readback do outbound foi verificado. etiqueta prospecção bloqueada,monitorar resposta
