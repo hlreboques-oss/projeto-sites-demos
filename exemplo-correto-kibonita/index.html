@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kibonita Studio de Beleza | Salão em Icaraí, Niterói</title>
+<meta name="description" content="Kibonita Studio de Beleza — cabelo, coloração e cuidados de beleza em Icaraí, Niterói. Agende seu horário pelo WhatsApp." />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { serif: ['Playfair Display','serif'], sans: ['Inter','system-ui','sans-serif'] },
+        colors: {
+          rose: { 50:'#fdf3f2',100:'#fbe6e4',200:'#f6c9c5',300:'#eea39c',400:'#e1746b',500:'#cf4f45',600:'#b23c33',700:'#93312a',800:'#7a2c27',900:'#682925' }
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',system-ui,sans-serif}</style>
+</head>
+<body class="bg-white text-slate-800">
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-rose-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-18 py-3 items-center justify-between">
+      <a href="#" class="font-serif text-2xl font-bold text-rose-700">Kibonita <span class="font-sans text-sm font-medium text-slate-500 block -mt-1">Studio de Beleza</span></a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#servicos" class="hover:text-rose-700">Serviços</a>
+        <a href="#galeria" class="hover:text-rose-700">Trabalhos</a>
+        <a href="#localizacao" class="hover:text-rose-700">Localização</a>
+        <a href="#duvidas" class="hover:text-rose-700">Dúvidas</a>
+      </nav>
+      <a href="https://wa.me/5521985531379" target="_blank" class="rounded-full bg-rose-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-rose-700 transition">Agendar horário</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full bg-rose-100 px-4 py-1.5 text-xs font-semibold text-rose-700 mb-6">
+        📍 Rua Lopes Trovão, 318 — Icaraí, Niterói
+      </span>
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold leading-tight text-slate-900">
+        Realçamos sua beleza natural
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 max-w-xl">
+        Cabelo, coloração, tratamentos e cuidados de beleza feitos com carinho e técnica, no coração de Icaraí.
+        Marque seu horário e venha sentir a diferença.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="https://wa.me/5521985531379" target="_blank" class="rounded-full bg-rose-600 px-7 py-3.5 text-white font-semibold shadow-lg shadow-rose-600/30 hover:bg-rose-700 transition">Agendar pelo WhatsApp</a>
+        <a href="#servicos" class="rounded-full border border-slate-300 px-7 py-3.5 font-semibold text-slate-700 hover:border-rose-400 hover:text-rose-700 transition">Ver serviços</a>
+      </div>
+      <div class="mt-10 flex items-center gap-8 text-sm text-slate-500">
+        <div><strong class="text-slate-900 text-xl">⭐ 4.9</strong><br/>avaliação Google</div>
+        <div><strong class="text-slate-900 text-xl">+800</strong><br/>clientes atendidas</div>
+      </div>
+    </div>
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80"
+           alt="Salão de beleza Kibonita"
+           class="rounded-3xl shadow-2xl ring-1 ring-rose-100 w-full aspect-[4/3] object-cover" />
+      <div class="absolute -bottom-6 -left-6 rounded-2xl bg-white shadow-xl ring-1 ring-rose-100 p-4 hidden sm:block">
+        <p class="text-xs text-slate-500">Atendimento</p>
+        <p class="text-lg font-bold text-rose-700">Seg a Sáb</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="bg-rose-50/50 border-y border-rose-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h2 class="font-serif text-3xl font-bold text-slate-900">Nossos serviços</h2>
+      <p class="mt-4 text-slate-600">Cuidado completo para o seu cabelo e sua beleza.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=600&q=80" class="rounded-xl h-40 w-full object-cover mb-4" alt="Corte e escova" />
+        <h3 class="font-semibold text-lg">Corte & Escova</h3>
+        <p class="mt-2 text-sm text-slate-600">Cortes modernos e escovas que valorizam seu estilo.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" class="rounded-xl h-40 w-full object-cover mb-4" alt="Coloração" />
+        <h3 class="font-semibold text-lg">Coloração</h3>
+        <p class="mt-2 text-sm text-slate-600">Tons personalizados com produtos de qualidade.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=80" class="rounded-xl h-40 w-full object-cover mb-4" alt="Tratamentos capilares" />
+        <h3 class="font-semibold text-lg">Tratamentos Capilares</h3>
+        <p class="mt-2 text-sm text-slate-600">Hidratação, reconstrução e nutrição para fios saudáveis.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80" class="rounded-xl h-40 w-full object-cover mb-4" alt="Penteados" />
+        <h3 class="font-semibold text-lg">Penteados & Eventos</h3>
+        <p class="mt-2 text-sm text-slate-600">Produção completa para o seu grande dia.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" class="rounded-xl h-40 w-full object-cover mb-4" alt="Manicure e pedicure" />
+        <h3 class="font-semibold text-lg">Manicure & Pedicure</h3>
+        <p class="mt-2 text-sm text-slate-600">Cuidado completo para suas mãos e pés.</p>
+      </div>
+      <div class="rounded-2xl bg-rose-600 text-white p-6 shadow-sm flex flex-col justify-center items-center text-center">
+        <h3 class="font-semibold text-lg mb-2">Quer saber mais?</h3>
+        <p class="text-sm text-rose-100 mb-4">Fale com a gente e agende seu horário.</p>
+        <a href="https://wa.me/5521985531379" target="_blank" class="rounded-full bg-white text-rose-700 font-semibold px-5 py-2.5 hover:bg-rose-50 transition">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria -->
+<section id="galeria" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <h2 class="font-serif text-3xl font-bold text-slate-900">Nossos trabalhos</h2>
+    <p class="mt-4 text-slate-600">Um pouco do que fazemos por aqui.</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80" class="rounded-xl h-48 w-full object-cover" alt="Trabalho 1" />
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=500&q=80" class="rounded-xl h-48 w-full object-cover" alt="Trabalho 2" />
+    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=500&q=80" class="rounded-xl h-48 w-full object-cover" alt="Trabalho 3" />
+    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=500&q=80" class="rounded-xl h-48 w-full object-cover" alt="Trabalho 4" />
+  </div>
+</section>
+
+<!-- Localização -->
+<section id="localizacao" class="bg-rose-900 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="font-serif text-3xl font-bold mb-4">Venha nos visitar</h2>
+      <p class="text-rose-100">Rua Lopes Trovão, 318 — Icaraí, Niterói/RJ</p>
+      <p class="text-rose-100 mt-1">Atendimento de segunda a sábado</p>
+      <a href="https://wa.me/5521985531379" target="_blank" class="mt-6 inline-block rounded-full bg-white text-rose-800 font-semibold px-6 py-3 hover:bg-rose-50 transition">Agendar meu horário</a>
+    </div>
+    <div class="rounded-2xl overflow-hidden ring-1 ring-white/10">
+      <iframe title="Mapa Kibonita" class="w-full h-64" loading="lazy"
+        src="https://www.google.com/maps?q=Rua+Lopes+Trov%C3%A3o,+318,+Icara%C3%AD,+Niter%C3%B3i&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Dúvidas -->
+<section id="duvidas" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20">
+  <h2 class="font-serif text-3xl font-bold text-center mb-12">Dúvidas frequentes</h2>
+  <div class="space-y-4">
+    <details class="group rounded-xl bg-rose-50 border border-rose-100 p-5">
+      <summary class="flex cursor-pointer items-center justify-between font-semibold">
+        Como faço para agendar?
+        <span class="text-rose-600 group-open:rotate-45 transition">+</span>
+      </summary>
+      <p class="mt-3 text-sm text-slate-600">É rápido! Clique no botão de WhatsApp e escolha o melhor horário para você.</p>
+    </details>
+    <details class="group rounded-xl bg-rose-50 border border-rose-100 p-5">
+      <summary class="flex cursor-pointer items-center justify-between font-semibold">
+        Quais formas de pagamento vocês aceitam?
+        <span class="text-rose-600 group-open:rotate-45 transition">+</span>
+      </summary>
+      <p class="mt-3 text-sm text-slate-600">Aceitamos Pix, cartão e dinheiro. Fale com a gente para confirmar.</p>
+    </details>
+    <details class="group rounded-xl bg-rose-50 border border-rose-100 p-5">
+      <summary class="flex cursor-pointer items-center justify-between font-semibold">
+        Vocês atendem sem hora marcada?
+        <span class="text-rose-600 group-open:rotate-45 transition">+</span>
+      </summary>
+      <p class="mt-3 text-sm text-slate-600">Recomendamos agendar pelo WhatsApp para garantir seu horário.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="bg-rose-600 text-white text-center py-16 px-4">
+  <h2 class="font-serif text-3xl font-bold">Pronta para se sentir ainda mais bonita?</h2>
+  <p class="mt-4 text-rose-100">Agende seu horário no Kibonita Studio de Beleza.</p>
+  <a href="https://wa.me/5521985531379" target="_blank" class="mt-8 inline-block rounded-full bg-white text-rose-700 font-semibold px-8 py-4 hover:bg-rose-50 transition">Agendar pelo WhatsApp</a>
+</section>
+
+<footer class="bg-slate-900 text-slate-400 text-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between gap-2">
+    <p>© Kibonita Studio de Beleza — Rua Lopes Trovão, 318, Icaraí, Niterói/RJ</p>
+    <p class="opacity-60">Prévia não oficial, criada para fins de demonstração.</p>
+  </div>
+</footer>
+
+</body>
+</html>

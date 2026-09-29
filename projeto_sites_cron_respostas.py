@@ -5,18 +5,47 @@ CRM=ROOT/'projeto_sites_crm.csv'
 ACT=ROOT/'projeto_sites_atividades.csv'
 ENV=pathlib.Path('/root/evolution-whatsapp-agent/.env')
 BASE='http://127.0.0.1:8085'
-INST='flavia-atendimento'
-STAGE2_TEMPLATE="""Obrigada 😊 Meu nome é Mayara.
-Eu cheguei até vocês pelo Google e vi que têm avaliações muito boas. Só que percebi que quem encontra vocês por lá poderia ter uma experiência bem melhor antes de chamar no WhatsApp.
+INST='projeto-sites'
+STAGE2A_TEMPLATE="""Obrigada 😊 Meu nome é Mayara.
+Tenho ajudado empresas do ramo de {area} a ter uma visibilidade melhor na internet através de sites construídos de forma personalizada.
 
-Então fiz uma coisa para te mostrar em vez de tentar explicar 😅
-Montei uma sugestão de página para vocês, usando as informações que encontrei publicamente:
+Minha dúvida é saber se você autoriza eu criar um site para você, só para você ver como que fica. Sem compromisso nenhum, e eu entrego em poucos minutos."""
+STAGE2_TEMPLATE="""Que bom! Aqui está uma sugestão de página para vocês, usando as informações que encontrei publicamente:
 👉 {demo_url}
 
 Não precisa comprar nada, viu? É só uma ideia que preparei para vocês.
 Se essa página fosse sua hoje, qual seria a primeira coisa que você mudaria nela?"""
 STAGE3="Ah, e só para ser transparente: eu sou uma inteligência artificial. Faço parte de uma operação que ajuda empresas a vender mais, e posso realizar tarefas como essa — pesquisar, criar conteúdo e site, e conversar com você — de ponta a ponta. Faz sentido eu te explicar por aqui ou prefere uma call rápida de 10 minutos com o Carlos?"
 ALREADY_SITE="Perfeito, obrigado por me avisar. Nesse caso não é sobre ‘ter ou não ter site’.\nAlém de site, eu também identifico pontos de atendimento, captação, organização do WhatsApp e conversão. Se quiser, eu posso te mostrar rapidamente o que percebi no posicionamento online de vocês."
+
+NICHE_KEYWORDS=[
+    ('odont','odontologia estética'),
+    ('harmoniza','harmonização facial'),
+    ('facial','estética facial'),
+    ('corporal','estética corporal e facial'),
+    ('depila','depilação a laser'),
+    ('laser','depilação a laser'),
+    ('sobrancel','sobrancelhas e cílios'),
+    ('cilios','sobrancelhas e cílios'),
+    ('micropigmenta','micropigmentação'),
+    ('fisio','fisioterapia dermatofuncional'),
+    ('massage','massagem e drenagem'),
+    ('massoter','massagem relaxante'),
+    ('drenagem','drenagem linfática'),
+    ('dermato','dermatologia estética'),
+    ('estetica automotiva','estética automotiva'),
+    ('mecanic','serviços automotivos'),
+    ('auto','serviços automotivos'),
+    ('cabelei','cabeleireiro e beleza'),
+    ('salao','salão de beleza'),
+    ('beleza','estética e beleza'),
+    ('spa','spa e bem-estar'),
+]
+def area_atuacao(lead):
+    blob=norm(' '.join([lead.get('nome') or '', lead.get('vulnerabilidade') or '', lead.get('site_status') or '', lead.get('notes') or '']))
+    for kw,label in NICHE_KEYWORDS:
+        if kw in blob: return label
+    return 'estética e beleza'
 ACT_FIELDS=['ts','lead_id','nome','telefone','tipo','etapa_de','etapa_para','mensagem_id','resumo','proxima_acao']
 
 def now(): return datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','+00:00')
@@ -76,8 +105,10 @@ def read_activities():
     return rows
 
 def infer_stage(lead, acts):
-    if lead.get('script_stage'): 
-        try: return int(lead.get('script_stage') or 1)
+    raw=(lead.get('script_stage') or '').strip()
+    if raw in ('2a','2b'): return raw
+    if raw:
+        try: return int(raw)
         except Exception: pass
     last=''
     for a in acts:
@@ -92,7 +123,7 @@ def classify_stage1(text):
     t=norm(text)
     bot_terms=['assistente virtual','chatbot','sou uma ia','sou uma inteligencia artificial','atendimento automatizado por ia','bot de atendimento','robô','robo']
     if any(x in t for x in bot_terms): return 'bot_terceiro'
-    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','no momento nao estamos em funcionamento','ja vamos te atender','deixe seu nome','deixe sua mensagem','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo','bem vinda','bem-vinda','seja bem vinda','seja bem vindo','seja muito bem vinda','seja muito bem vindo','seja muito bem-vinda','seja muito bem-vindo','agradece seu contato','como podemos ajudar','nosso espaco foi criado','nosso espaço foi criado','sera um prazer cuidar','será um prazer cuidar','para melhor atendimento']
+    auto_terms=['atendimento automatico','mensagem automatica','horario de atendimento','fora do horario','em breve retornaremos','assim que possivel','favor aguardar','aguarde','estamos ocupados','no momento nao estamos disponiveis','no momento nao estamos em funcionamento','ja vamos te atender','ja ja te atendo','deixe seu nome','deixe sua mensagem','deixe abaixo seu nome','deixe abaixo seu nome e assunto','menu','digite','opcao','opcoes','retornaremos','bem-vindo','bem vindo','bem vinda','bem-vinda','seja bem vinda','seja bem vindo','seja muito bem vinda','seja muito bem vindo','seja muito bem-vinda','seja muito bem-vindo','agradece seu contato','como podemos ajudar','nosso espaco foi criado','nosso espaço foi criado','sera um prazer cuidar','será um prazer cuidar','para melhor atendimento','este numero sera inativado','este numero será inativado','entre em contato com meu novo numero','entre em contato com meu novo número']
     if any(x in t for x in auto_terms): return 'auto_negocio'
     stop_terms=['nao existe mais','empresa fechou','fechado','paralisada','paralisado','numero errado','nao conheco','nao e aqui','não é aqui']
     if any(norm(x) in t for x in stop_terms): return 'stop'
@@ -172,9 +203,11 @@ def main():
             rem=key.get('remoteJid') or ''
             alt=key.get('remoteJidAlt') or ''
             if rem!=remote and alt!=remote: continue
-            # Evolution/CRM timestamps can differ by a few seconds on immediate auto-replies.
-            # Keep a 30s grace window so business greetings right after the opener are logged.
-            if msg_ts(m) + 30 < last_out: continue
+            # Evolution/CRM timestamps can differ by seconds on immediate auto-replies: the CRM
+            # last_outbound_at is written after the readback check, so it lands 20-40s AFTER the
+            # real WhatsApp send time and a greeting that arrived in between would be dropped.
+            # Keep a 240s grace window so business greetings right after the opener are logged.
+            if msg_ts(m) + 240 < last_out: continue
             txt=extract_text(m).strip()
             if txt: relevant.append(m)
         if not relevant: continue
@@ -186,7 +219,7 @@ def main():
         newest=relevant[-1]; txt=extract_text(newest).strip(); mid=(newest.get('key') or {}).get('id') or newest.get('id') or ''
         old_etapa=lead.get('etapa')
         remote_actual=(newest.get('key') or {}).get('remoteJid') or remote
-        if stage<=1:
+        if stage=='1' or stage==1:
             # If an automatic greeting is followed by a genuine human reply and later
             # another canned/autopromo message, continue from the human reply instead
             # of letting the newest automated-looking text mask the human response.
@@ -213,7 +246,7 @@ def main():
             else:
                 cls=classify_stage1(txt)
             if cls=='bot_terceiro':
-                lead.update(etapa='desativado',motivo_etapa='respondido por IA/bot de terceiro',abordagem_status='resposta_recebida_desativado',last_inbound_at=now(),updated_at=now(),notes=((lead.get('notes') or '')+'\nResposta: '+txt).strip())
+                lead.update(etapa='desativado',motivo_etapa='respondido por IA/bot de terceiro',abordagem_status='resposta_recebida_desativado',last_inbound_at=now(),updated_at=now(),notes=((lead.get('notes') or '')+'\n Resposta: '+txt).strip())
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'desativado','mensagem_id':mid,'resumo':'Respondido por IA/bot de terceiro; conversa parada.','proxima_acao':'não contatar'})
                 actions.append((lead.get('nome'), 'IA/bot terceiro', old_etapa+' stage 1', 'desativado', None, 'não contatar'))
             elif cls=='auto_negocio':
@@ -221,55 +254,47 @@ def main():
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta automática do negócio; sem envio para não pular estágio.','proxima_acao':'aguardar resposta humana'})
                 actions.append((lead.get('nome'), 'automática do negócio', old_etapa+' stage 1', old_etapa+' stage 1', None, 'aguardar humano'))
             elif cls=='stop':
-                lead.update(etapa='desativado',motivo_etapa='contato informou empresa/contato inválido ou fechado',abordagem_status='resposta_recebida_desativado',last_inbound_at=now(),updated_at=now(),notes=((lead.get('notes') or '')+'\nResposta: '+txt).strip())
+                lead.update(etapa='desativado',motivo_etapa='contato informou empresa/contato inválido ou fechado',abordagem_status='resposta_recebida_desativado',last_inbound_at=now(),updated_at=now(),notes=((lead.get('notes') or '')+'\n Resposta: '+txt).strip())
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'desativado','mensagem_id':mid,'resumo':'Contato indicou empresa/contato inválido ou fechado; não contatar.','proxima_acao':'não contatar'})
                 actions.append((lead.get('nome'), 'encerramento/inválido', old_etapa+' stage 1', 'desativado', None, 'não contatar'))
             else:
-                demo=(lead.get('demo_url') or '').strip()
-                if not demo:
-                    lead.update(needs_human='true', updated_at=now(), last_inbound_at=now(), motivo_etapa='resposta humana recebida, mas lead sem demo_url')
-                    newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta humana genuína, mas demo_url ausente; não enviado link inventado.','proxima_acao':'gerar demo_url'})
-                    actions.append((lead.get('nome'), 'humana genuína; sem demo_url', old_etapa+' stage 1', old_etapa+' stage 1', None, 'gerar demo'))
-                else:
-                    msg=STAGE2_TEMPLATE.format(demo_url=demo)
-                    resp=send(remote_actual, msg); outid=(resp.get('key') or {}).get('id') or resp.get('messageId') or ''
-                    ok=verify_outbound(outid, remote_actual, 'Montei uma sugestão de página')
-                    if not ok: raise RuntimeError('readback falhou para demo '+lead.get('nome',''))
-                    lead.update(etapa='qualificando',motivo_etapa='respondeu ao opener (humano genuino); segunda mensagem com demo enviada',abordagem_status='demo_enviada_apos_resposta_humana',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,script_stage='2',outbound_count=str(int(lead.get('outbound_count') or '0')+1))
-                    newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_demo','etapa_de':old_etapa,'etapa_para':'qualificando','mensagem_id':outid,'resumo':'Resposta humana genuína classificada; enviada segunda mensagem obrigatória com demo (Estágio 2); envio verificado por readback.','proxima_acao':'monitorar interação com demo'})
-                    actions.append((lead.get('nome'), 'humana genuína', old_etapa+' stage 1', 'qualificando stage 2', msg, 'monitorar interação com demo'))
-        elif stage==3 and lead.get('abordagem_status')=='pergunta_curiosidade_enviada':
+                area=area_atuacao(lead)
+                msg=STAGE2A_TEMPLATE.format(area=area)
+                resp=send(remote_actual, msg); outid=(resp.get('key') or {}).get('id') or resp.get('messageId') or ''
+                ok=verify_outbound(outid, remote_actual, 'posso criar um site')
+                if not ok: raise RuntimeError('readback falhou para pedido de permissao '+lead.get('nome',''))
+                lead.update(etapa='qualificando',motivo_etapa='respondeu ao opener (humano genuino); pedido de permissão para site enviado',abordagem_status='permissao_solicitada',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,script_stage='2a',outbound_count=str(int(lead.get('outbound_count') or '0')+1))
+                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_permissao','etapa_de':old_etapa,'etapa_para':'qualificando','mensagem_id':outid,'resumo':'Resposta humana genuína classificada; enviado pedido de permissão para criar site (Estágio 2a, sem demo/link ainda); envio verificado por readback.','proxima_acao':'aguardar autorização explícita antes de construir qualquer demo'})
+                actions.append((lead.get('nome'), 'humana genuína', old_etapa+' stage 1', 'qualificando stage 2a', msg, 'aguardar autorização'))
+        elif stage=='2a':
             cls=classify_response(txt)
-            if cls in ('interesse','preco_interesse'):
-                demo=(lead.get('demo_url') or '').strip()
-                if not demo:
-                    lead.update(needs_human='true', updated_at=now(), last_inbound_at=now(), motivo_etapa='interesse recebido mas lead sem demo_url')
-                    newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Interesse recebido, mas demo_url ausente; não enviado link inventado.','proxima_acao':'gerar demo_url'})
-                    actions.append((lead.get('nome'), 'interesse; sem demo_url', old_etapa+' stage 3', old_etapa+' stage 3', None, 'gerar demo'))
-                else:
-                    msg=STAGE2_TEMPLATE.format(demo_url=demo)
-                    resp=send(remote_actual, msg); outid=(resp.get('key') or {}).get('id') or resp.get('messageId') or ''
-                    ok=verify_outbound(outid, remote_actual, 'Montei uma sugestão de página')
-                    if not ok: raise RuntimeError('readback falhou para demo '+lead.get('nome',''))
-                    lead.update(etapa='qualificando',motivo_etapa='respondeu à pergunta de curiosidade; segunda mensagem com demo enviada',abordagem_status='demo_enviada_apos_resposta_humana',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,script_stage='2',outbound_count=str(int(lead.get('outbound_count') or '0')+1))
-                    newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_demo','etapa_de':old_etapa,'etapa_para':'qualificando','mensagem_id':outid,'resumo':'Interesse classificado; segunda mensagem obrigatória com demo enviada; envio verificado por readback.','proxima_acao':'monitorar interação com demo'})
-                    actions.append((lead.get('nome'), cls, old_etapa+' stage 3', 'qualificando stage 2', msg, 'monitorar interação com demo'))
+            if cls in ('interesse',) or re.search(r'\b(pode|manda|quero ver|topo|claro|pode sim|pode mandar)\b', norm(txt)):
+                lead.update(needs_human='true', script_stage='2b', updated_at=now(), last_inbound_at=now(),
+                            motivo_etapa='autorizou a criação do site; aguardando build manual/agente antes de qualquer envio de link',
+                            abordagem_status='autorizado_aguardando_build',
+                            notes=((lead.get('notes') or '')+'\nAutorização recebida: '+txt).strip())
+                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Lead autorizou explicitamente a criação do site; nenhuma demo construída ainda, aguardando build (Estágio 2b).','proxima_acao':'construir e publicar demo, depois enviar mensagem de entrega'})
+                actions.append((lead.get('nome'), 'autorizou site (2a->2b)', old_etapa+' stage 2a', old_etapa+' stage 2b', None, 'construir demo'))
             elif cls=='ja_tem_site':
                 resp=send(remote_actual, ALREADY_SITE); outid=(resp.get('key') or {}).get('id') or resp.get('messageId') or ''
                 ok=verify_outbound(outid, remote_actual, 'Além de site')
                 if not ok: raise RuntimeError('readback falhou site existente '+lead.get('nome',''))
                 lead.update(etapa='qualificando',motivo_etapa='lead informou já ter site; pivot enviado',abordagem_status='pivot_site_existente_enviado',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,outbound_count=str(int(lead.get('outbound_count') or '0')+1))
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_pivot_site','etapa_de':old_etapa,'etapa_para':'qualificando','mensagem_id':outid,'resumo':'Lead disse que já tem site; pivot de atendimento/captação enviado; readback verificado.','proxima_acao':'monitorar interesse'})
-                actions.append((lead.get('nome'), 'já tem site', old_etapa+' stage 3', 'qualificando stage 3', ALREADY_SITE, 'monitorar'))
+                actions.append((lead.get('nome'), 'já tem site', old_etapa+' stage 2a', 'qualificando stage 2a', ALREADY_SITE, 'monitorar'))
             elif cls=='negativo':
-                lead.update(etapa='nao_converteu',motivo_etapa='resposta negativa após pergunta de curiosidade',abordagem_status='negativo_sem_envio',last_inbound_at=now(),updated_at=now())
-                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'nao_converteu','mensagem_id':mid,'resumo':'Resposta negativa; sem insistir.','proxima_acao':'não seguir agora'})
-                actions.append((lead.get('nome'), 'negativa', old_etapa+' stage 3', 'nao_converteu', None, 'não seguir'))
+                lead.update(etapa='nao_converteu',motivo_etapa='recusou autorização para criar o site',abordagem_status='negativo_sem_autorizacao',last_inbound_at=now(),updated_at=now())
+                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'nao_converteu','mensagem_id':mid,'resumo':'Resposta negativa ao pedido de permissão; sem construir nada, sem insistir.','proxima_acao':'não seguir agora'})
+                actions.append((lead.get('nome'), 'negativa (permissão)', old_etapa+' stage 2a', 'nao_converteu', None, 'não seguir'))
             else:
-                lead.update(last_inbound_at=now(),updated_at=now(),motivo_etapa='resposta recebida sem intenção comercial clara; aguardando revisão/novo contexto',abordagem_status='resposta_monitorada_sem_envio')
-                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta sem intenção comercial clara; sem envio automático: '+txt[:160],'proxima_acao':'aguardar contexto comercial claro'})
-                actions.append((lead.get('nome'), 'neutra/sem intenção clara', old_etapa+' stage 3', old_etapa+' stage 3', None, 'aguardar contexto'))
-        elif stage in (2,4):
+                lead.update(last_inbound_at=now(),updated_at=now(),motivo_etapa='resposta ao pedido de permissão sem sim/não claro; aguardando revisão',abordagem_status='permissao_resposta_ambigua')
+                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta ambígua ao pedido de permissão; não construir nada ainda: '+txt[:160],'proxima_acao':'aguardar confirmação clara (sim/pode/manda) antes de construir'})
+                actions.append((lead.get('nome'), 'ambígua (permissão)', old_etapa+' stage 2a', old_etapa+' stage 2a', None, 'aguardar confirmação'))
+        elif stage=='2b':
+            lead.update(last_inbound_at=now(),updated_at=now())
+            newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Lead já autorizado, aguardando build manual/agente da demo; nova mensagem registrada sem envio automático: '+txt[:160],'proxima_acao':'concluir build e enviar demo'})
+            actions.append((lead.get('nome'), 'aguardando build (2b)', old_etapa+' stage 2b', old_etapa+' stage 2b', None, 'concluir build'))
+        elif stage==3:
             cls=classify_response(txt)
             if cls in ('interesse','preco_interesse'):
                 msg=STAGE3
@@ -278,17 +303,17 @@ def main():
                 resp=send(remote_actual, msg); outid=(resp.get('key') or {}).get('id') or resp.get('messageId') or ''
                 ok=verify_outbound(outid, remote_actual, 'só para ser transparente')
                 if not ok: raise RuntimeError('readback falhou IA reveal '+lead.get('nome',''))
-                lead.update(etapa='negociando',motivo_etapa='engajou com demo; revelação de IA enviada',abordagem_status='ia_revelada_apos_engajamento',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,script_stage='3',outbound_count=str(int(lead.get('outbound_count') or '0')+1))
-                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_ia_reveal','etapa_de':old_etapa,'etapa_para':'negociando','mensagem_id':outid,'resumo':'Engajamento real com demo; revelação de IA (Estágio 3) enviada; readback verificado.','proxima_acao':'conduzir explicação/call/preço'})
-                actions.append((lead.get('nome'), cls, old_etapa+' stage '+str(stage), 'negociando stage 3', msg, 'conduzir negociação'))
+                lead.update(etapa='negociando',motivo_etapa='engajou com demo; revelação de IA enviada',abordagem_status='ia_revelada_apos_engajamento',last_inbound_at=now(),last_outbound_at=now(),updated_at=now(),last_message_id=outid,script_stage='4',outbound_count=str(int(lead.get('outbound_count') or '0')+1))
+                newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'outbound_ia_reveal','etapa_de':old_etapa,'etapa_para':'negociando','mensagem_id':outid,'resumo':'Engajamento real com demo; revelação de IA (Estágio 4) enviada; readback verificado.','proxima_acao':'conduzir explicação/call/preço'})
+                actions.append((lead.get('nome'), cls, old_etapa+' stage 3', 'negociando stage 4', msg, 'conduzir negociação'))
             elif cls=='negativo':
                 lead.update(etapa='nao_converteu',motivo_etapa='resposta negativa após demo',abordagem_status='negativo_apos_demo',last_inbound_at=now(),updated_at=now())
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':'nao_converteu','mensagem_id':mid,'resumo':'Resposta negativa após demo; sem insistir.','proxima_acao':'não seguir agora'})
-                actions.append((lead.get('nome'), 'negativa após demo', old_etapa+' stage 4', 'nao_converteu', None, 'não seguir'))
+                actions.append((lead.get('nome'), 'negativa após demo', old_etapa+' stage 3', 'nao_converteu', None, 'não seguir'))
             else:
                 lead.update(last_inbound_at=now(),updated_at=now(),motivo_etapa='resposta após demo sem interesse claro; aguardando revisão/novo contexto',abordagem_status='resposta_pos_demo_monitorada_sem_envio')
                 newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta após demo sem interesse claro; sem envio automático: '+txt[:160],'proxima_acao':'aguardar contexto comercial claro'})
-                actions.append((lead.get('nome'), 'pós-demo neutra', old_etapa+' stage 4', old_etapa+' stage 4', None, 'aguardar contexto'))
+                actions.append((lead.get('nome'), 'pós-demo neutra', old_etapa+' stage 3', old_etapa+' stage 3', None, 'aguardar contexto'))
         else:
             lead.update(last_inbound_at=now(),updated_at=now())
             newacts.append({'ts':now(),'lead_id':lead.get('lead_id'),'nome':lead.get('nome'),'telefone':lead.get('telefone'),'tipo':'sistema','etapa_de':old_etapa,'etapa_para':old_etapa,'mensagem_id':mid,'resumo':'Resposta em estágio avançado registrada sem envio automático: '+txt[:160],'proxima_acao':'revisar negociação'})
