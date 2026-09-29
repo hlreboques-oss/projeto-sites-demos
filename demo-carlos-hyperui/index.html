@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projeto Sites — Demo Premium (HyperUI base)</title>
+<meta name="robots" content="noindex" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+        colors: {
+          brand: { 50:'#f5f3ff',100:'#ede9fe',200:'#ddd6fe',300:'#c4b5fd',400:'#a78bfa',500:'#8b5cf6',600:'#7c3aed',700:'#6d28d9',800:'#5b21b6',900:'#4c1d95' }
+        }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter',system-ui,sans-serif}</style>
+</head>
+<body class="bg-white text-slate-900">
+
+<!-- Banner de prévia -->
+<div class="bg-brand-900 text-white text-center text-sm py-2 px-4">
+  Prévia não oficial — conceito de demonstração criado pelo Projeto Sites. Não é o site final.
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <a href="#" class="flex items-center gap-2 text-lg font-bold text-brand-700">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white">PS</span>
+        Projeto Sites
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#servicos" class="hover:text-brand-700">Serviços</a>
+        <a href="#diferenciais" class="hover:text-brand-700">Diferenciais</a>
+        <a href="#depoimentos" class="hover:text-brand-700">Depoimentos</a>
+        <a href="#faq" class="hover:text-brand-700">Dúvidas</a>
+      </nav>
+      <a href="#contato" class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-brand-700 transition">Falar no WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold text-brand-700 mb-6">
+        ✨ Feito com base HyperUI + Tailwind — visual premium sem stock genérico
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+        Um site que transmite <span class="text-brand-600">confiança</span> antes mesmo do primeiro WhatsApp.
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 max-w-xl">
+        Esta é uma prévia de como o Projeto Sites entrega demos personalizadas: hero forte, seções de conversão,
+        prova social e CTA claro — sem parecer template genérico e sem usar nenhuma foto real sem autorização.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#contato" class="rounded-xl bg-brand-600 px-6 py-3 text-white font-semibold shadow-lg shadow-brand-600/30 hover:bg-brand-700 transition">Quero um site assim</a>
+        <a href="#servicos" class="rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:border-brand-400 hover:text-brand-700 transition">Ver estrutura</a>
+      </div>
+      <div class="mt-10 flex items-center gap-6 text-sm text-slate-500">
+        <div><strong class="text-slate-900 text-xl">100%</strong><br/>personalizável</div>
+        <div><strong class="text-slate-900 text-xl">&lt; 10min</strong><br/>para gerar uma prévia</div>
+        <div><strong class="text-slate-900 text-xl">R$350</strong><br/>ou 12x de R$35</div>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="rounded-3xl bg-white shadow-2xl ring-1 ring-slate-200 p-6">
+        <div class="rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 aspect-[4/3] flex items-center justify-center text-white text-center p-8">
+          <div>
+            <p class="text-sm uppercase tracking-widest opacity-80 mb-2">Mockup visual</p>
+            <p class="text-2xl font-bold">Sem fotos reais<br/>sem autorização</p>
+            <p class="mt-3 text-sm opacity-80">Ícones, gradientes e composição autoral no lugar da imagem do estabelecimento.</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -bottom-6 -left-6 rounded-2xl bg-white shadow-xl ring-1 ring-slate-200 p-4 hidden sm:block">
+        <p class="text-xs text-slate-500">Avaliação média</p>
+        <p class="text-xl font-bold text-brand-700">⭐ 4.9 / 5</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Logos / prova social leve -->
+<section class="border-y border-slate-100 bg-slate-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <p class="text-center text-sm text-slate-500 mb-6">Estrutura pensada para negócios locais que vivem de confiança e agenda</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center text-sm font-semibold text-slate-400">
+      <div>Estética & Beleza</div>
+      <div>Saúde & Bem-estar</div>
+      <div>Serviços Premium</div>
+      <div>Profissionais Liberais</div>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços / Feature grid -->
+<section id="servicos" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <h2 class="text-3xl font-bold">O que entra em cada demo do Projeto Sites</h2>
+    <p class="mt-4 text-slate-600">Seções modulares em estilo HyperUI, adaptadas ao nicho e às informações públicas verificadas de cada empresa.</p>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">01</div>
+      <h3 class="font-semibold text-lg">Hero de impacto</h3>
+      <p class="mt-2 text-sm text-slate-600">Headline forte + CTA visível acima da dobra, sem enrolação.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">02</div>
+      <h3 class="font-semibold text-lg">Serviços organizados</h3>
+      <p class="mt-2 text-sm text-slate-600">Cartões claros com o que a empresa realmente oferece, sem inventar nada.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">03</div>
+      <h3 class="font-semibold text-lg">Prova social</h3>
+      <p class="mt-2 text-sm text-slate-600">Espaço pronto para depoimentos e avaliações reais assim que autorizados.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">04</div>
+      <h3 class="font-semibold text-lg">Localização & Agenda</h3>
+      <p class="mt-2 text-sm text-slate-600">Bairro, horário e botão direto de WhatsApp sempre visíveis.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">05</div>
+      <h3 class="font-semibold text-lg">FAQ de confiança</h3>
+      <p class="mt-2 text-sm text-slate-600">Responde as dúvidas mais comuns antes do cliente perguntar.</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-bold mb-4">06</div>
+      <h3 class="font-semibold text-lg">CTA final forte</h3>
+      <p class="mt-2 text-sm text-slate-600">Fecha a página convidando para o WhatsApp de forma natural.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Diferenciais / CTA em bloco de cor -->
+<section id="diferenciais" class="bg-brand-900 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-3xl font-bold mb-6">Por que essa demo é diferente de um template pronto</h2>
+      <ul class="space-y-4 text-brand-100">
+        <li class="flex gap-3"><span>✔</span> Informações reais e verificadas da empresa — nunca inventadas.</li>
+        <li class="flex gap-3"><span>✔</span> Nenhuma foto do estabelecimento usada sem autorização.</li>
+        <li class="flex gap-3"><span>✔</span> Paleta, ícones e seções adaptados ao nicho específico.</li>
+        <li class="flex gap-3"><span>✔</span> Site final pode ser 100% personalizado: fotos reais aprovadas, textos, cores, logo, domínio e WhatsApp.</li>
+      </ul>
+    </div>
+    <div class="rounded-2xl bg-white/10 p-8 backdrop-blur border border-white/10">
+      <p class="text-sm uppercase tracking-widest text-brand-200 mb-2">Investimento nesta ação</p>
+      <p class="text-4xl font-extrabold">R$ 350</p>
+      <p class="text-brand-200 mt-1">ou 12x de R$ 35</p>
+      <p class="mt-4 text-sm text-brand-100">Site normal custaria entre R$ 800 e R$ 1.500. Essa é uma condição especial da ação Projeto Sites.</p>
+      <a href="#contato" class="mt-6 inline-block rounded-xl bg-white text-brand-800 font-semibold px-6 py-3 hover:bg-brand-50 transition">Quero aproveitar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section id="depoimentos" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <h2 class="text-3xl font-bold">Espaço reservado para prova social real</h2>
+    <p class="mt-4 text-slate-600">Assim que autorizado, entram aqui depoimentos, prints de avaliação e antes/depois reais.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="rounded-2xl bg-slate-50 p-6 border border-slate-100">
+      <p class="text-slate-600 text-sm">"Espaço para depoimento real do cliente, com autorização."</p>
+      <p class="mt-4 font-semibold text-sm">— Cliente (exemplo)</p>
+    </div>
+    <div class="rounded-2xl bg-slate-50 p-6 border border-slate-100">
+      <p class="text-slate-600 text-sm">"Espaço para depoimento real do cliente, com autorização."</p>
+      <p class="mt-4 font-semibold text-sm">— Cliente (exemplo)</p>
+    </div>
+    <div class="rounded-2xl bg-slate-50 p-6 border border-slate-100">
+      <p class="text-slate-600 text-sm">"Espaço para depoimento real do cliente, com autorização."</p>
+      <p class="mt-4 font-semibold text-sm">— Cliente (exemplo)</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-slate-50 border-y border-slate-100">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Dúvidas frequentes</h2>
+    <div class="space-y-4">
+      <details class="group rounded-xl bg-white border border-slate-200 p-5">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">
+          Essa prévia é o site final?
+          <span class="text-brand-600 group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Não. É uma prévia não oficial para você visualizar o potencial. O site final é construído com sua aprovação.</p>
+      </details>
+      <details class="group rounded-xl bg-white border border-slate-200 p-5">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">
+          Vocês usam fotos do meu negócio sem eu autorizar?
+          <span class="text-brand-600 group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Nunca. Prévias usam apenas informações públicas e visuais autorais. Fotos reais só entram com sua autorização explícita.</p>
+      </details>
+      <details class="group rounded-xl bg-white border border-slate-200 p-5">
+        <summary class="flex cursor-pointer items-center justify-between font-semibold">
+          Quanto custa o site final?
+          <span class="text-brand-600 group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-slate-600">Um site normal custa entre R$ 800 e R$ 1.500. Nesta ação, o investimento é R$ 350 ou 12x de R$ 35.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section id="contato" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
+  <h2 class="text-3xl font-bold">Quer ver essa estrutura com as informações do seu negócio?</h2>
+  <p class="mt-4 text-slate-600 max-w-xl mx-auto">Autorize a criação e eu entrego uma versão personalizada em poucos minutos, sem compromisso.</p>
+  <a href="#" class="mt-8 inline-block rounded-xl bg-brand-600 px-8 py-4 text-white font-semibold shadow-lg shadow-brand-600/30 hover:bg-brand-700 transition">Falar agora no WhatsApp</a>
+</section>
+
+<footer class="bg-slate-900 text-slate-400 text-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between gap-4">
+    <p>© Projeto Sites — prévia não oficial, gerada para fins de demonstração.</p>
+    <p>Base visual: seções estilo HyperUI (Tailwind CSS, MIT).</p>
+  </div>
+</footer>
+
+</body>
+</html>
