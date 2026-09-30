@@ -577,11 +577,14 @@
   document.getElementById('ano').textContent = new Date().getFullYear();
   (function(){
     var alvos = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){ alvos.forEach(function(e){e.classList.add('in')}); return; }
+    function revelarTudo(){ alvos.forEach(function(e){ e.classList.add('in'); }); }
+    if(!('IntersectionObserver' in window)){ revelarTudo(); return; }
     var io = new IntersectionObserver(function(entradas){
       entradas.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
     alvos.forEach(function(e){ io.observe(e); });
+    /* rede de segurança: nunca deixar conteúdo invisível (captura de tela, impressão, JS limitado) */
+    setTimeout(revelarTudo, 1800);
   })();
 </script>
 </body>
