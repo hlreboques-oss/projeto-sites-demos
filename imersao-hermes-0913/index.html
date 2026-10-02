@@ -1,123 +1,22 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Imersão Hermes 9h às 13h</title>
-<meta name="description" content="Guia digital da imersão Hermes: VPS, Telegram, agente, prospecção e social selling." />
-<style>
-:root{--bg:#090b12;--card:#121827;--line:#263044;--text:#eef3ff;--muted:#a9b4ca;--brand:#8df3c5;--brand2:#87a9ff;--warn:#ffd166;--danger:#ff7b7b}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#1d2f54 0,#090b12 42%,#06070b 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:var(--brand)}.wrap{max-width:1120px;margin:0 auto;padding:28px 18px 60px}.hero{padding:42px 0 28px}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(141,243,197,.4);background:rgba(141,243,197,.08);color:var(--brand);padding:8px 12px;border-radius:999px;font-weight:700;font-size:14px}.hero h1{font-size:clamp(34px,6vw,70px);line-height:.96;margin:18px 0 14px;letter-spacing:-.05em}.hero p{font-size:clamp(17px,2vw,22px);color:var(--muted);max-width:780px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 6;background:rgba(18,24,39,.86);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.28)}.card.full{grid-column:1/-1}.card.third{grid-column:span 4}.card h2,.card h3{margin:0 0 10px;letter-spacing:-.02em}.card h2{font-size:28px}.card h3{font-size:22px}.muted{color:var(--muted)}code,pre{background:#080b12;border:1px solid #1d2637;border-radius:14px;color:#dfffe9}code{padding:2px 6px}pre{padding:14px;overflow:auto;white-space:pre-wrap}.steps{counter-reset:s}.step{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}.step:first-child{border-top:0}.step:before{counter-increment:s;content:counter(s);flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#061017;font-weight:900}.pill{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(135,169,255,.12);border:1px solid rgba(135,169,255,.28);color:#cfe0ff;margin:4px 6px 4px 0;font-size:14px}.warn{border-color:rgba(255,209,102,.4);background:rgba(255,209,102,.1)}.danger{border-color:rgba(255,123,123,.4);background:rgba(255,123,123,.1)}.ok{color:var(--brand)}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 16px;border-radius:14px;text-decoration:none;font-weight:800;border:1px solid rgba(255,255,255,.14);background:#fff;color:#07111f}.btn.secondary{background:rgba(255,255,255,.07);color:var(--text)}ul{padding-left:20px}.small{font-size:14px}@media(max-width:800px){.card,.card.third{grid-column:1/-1}.hero{padding-top:20px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <section class="hero">
-    <div class="badge">Imersão Hermes • 9h às 13h</div>
-    <h1>Instalar, conectar e operar um agente Hermes próprio.</h1>
-    <p>Guia digital para coordenar a aula: VPS, Hermes, Telegram, arquivo base, prospecção, social selling e rotina operacional com segurança.</p>
-    <div class="btns">
-      <a class="btn" href="#instalacao">Começar instalação</a>
-      <a class="btn secondary" href="#telegram">Conectar Telegram</a>
-      <a class="btn secondary" href="#prompts">Prompts prontos</a>
-    </div>
-  </section>
-
-  <section class="grid">
-    <div class="card full" id="instalacao">
-      <h2>1. Comando inicial na VPS</h2>
-      <p class="muted">Depois que o aluno contratar a VPS Ubuntu e entrar por SSH, ele cola:</p>
-      <pre>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</pre>
-      <p>Depois configura o Hermes:</p>
-      <pre>hermes setup --portal</pre>
-      <p class="muted">Alternativa manual: <code>hermes setup</code> ou <code>hermes model</code>.</p>
-    </div>
-
-    <div class="card">
-      <h3>2. Entrar na VPS</h3>
-      <pre>ssh root@IP_DA_VPS</pre>
-      <p class="muted">Se pedir confirmação, digitar <code>yes</code>. Depois a senha da VPS.</p>
-    </div>
-    <div class="card">
-      <h3>3. Testar no terminal</h3>
-      <pre>hermes</pre>
-      <p>Mensagem de teste:</p>
-      <pre>Responda apenas: Hermes funcionando.</pre>
-    </div>
-
-    <div class="card full" id="telegram">
-      <h2>4. Telegram</h2>
-      <div class="steps">
-        <div class="step"><div><b>Criar bot</b><br><span class="muted">Abrir <code>@BotFather</code>, enviar <code>/newbot</code>, escolher nome e username terminando em <code>bot</code>.</span></div></div>
-        <div class="step"><div><b>Copiar token</b><br><span class="muted">Token é segredo. Não mandar em grupo.</span></div></div>
-        <div class="step"><div><b>Pegar user ID</b><br><span class="muted">Abrir <code>@userinfobot</code>, enviar <code>/start</code> e copiar o ID numérico.</span></div></div>
-        <div class="step"><div><b>Configurar gateway</b><pre>hermes gateway setup</pre><span class="muted">Escolher Telegram, colar token e user ID permitido.</span></div></div>
-        <div class="step"><div><b>Testar</b><pre>hermes gateway</pre><span class="muted">Mandar “oi” para o bot no Telegram.</span></div></div>
-        <div class="step"><div><b>Deixar permanente</b><pre>hermes gateway install
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Instalador Assistido Hermes VPS</title><meta name="description" content="Instalador assistido Hermes para VPS, Telegram e imersão."/><style>:root{--bg:#080a12;--card:#121827;--card2:#0d1322;--line:#263044;--text:#eef3ff;--muted:#aab6cc;--brand:#8df3c5;--brand2:#8aa7ff;--purple:#714bff;--warn:#ffd166;--danger:#ff7b7b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top left,#1c2f55 0,#080a12 42%,#05060a 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:var(--brand)}.wrap{max-width:1200px;margin:0 auto;padding:28px 18px 70px}.hero{padding:34px 0 24px}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(141,243,197,.4);background:rgba(141,243,197,.08);color:var(--brand);padding:8px 12px;border-radius:999px;font-weight:800;font-size:14px}.hero h1{font-size:clamp(34px,6vw,72px);line-height:.96;margin:18px 0 14px;letter-spacing:-.055em}.hero p{font-size:clamp(17px,2vw,22px);color:var(--muted);max-width:850px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 6;background:rgba(18,24,39,.88);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.28)}.card.full{grid-column:1/-1}.card.third{grid-column:span 4}.card h2,.card h3{margin:0 0 10px;letter-spacing:-.02em}.card h2{font-size:30px}.card h3{font-size:22px}.muted{color:var(--muted)}code,pre{background:#070b12;border:1px solid #1d2637;border-radius:14px;color:#dfffe9}code{padding:2px 6px}pre{padding:14px;overflow:auto;white-space:pre-wrap}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn,button{display:inline-flex;align-items:center;justify-content:center;padding:13px 16px;border-radius:14px;text-decoration:none;font-weight:900;border:1px solid rgba(255,255,255,.14);background:#fff;color:#07111f;cursor:pointer}.btn.secondary,button.secondary{background:rgba(255,255,255,.07);color:var(--text)}button.purple{background:linear-gradient(135deg,var(--purple),#9a7cff);color:white}label{display:block;font-weight:800;margin:10px 0 6px}input{width:100%;background:#07101d;border:1px solid #28354d;color:var(--text);border-radius:14px;padding:13px;font-size:15px}.pill{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(135,169,255,.12);border:1px solid rgba(135,169,255,.28);color:#cfe0ff;margin:4px 6px 4px 0;font-size:14px}.danger{background:rgba(255,123,123,.1);border-color:rgba(255,123,123,.4)}.warn{background:rgba(255,209,102,.1);border-color:rgba(255,209,102,.4)}.steps{counter-reset:s}.step{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}.step:first-child{border-top:0}.step:before{counter-increment:s;content:counter(s);flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#061017;font-weight:900}.shot{width:100%;border-radius:20px;border:1px solid var(--line);background:#111;margin-top:10px}.small{font-size:14px}.copyrow{display:flex;gap:8px;align-items:flex-start}.copyrow pre{flex:1;margin:0}.notice{padding:14px;border-radius:18px;border:1px solid rgba(255,209,102,.35);background:rgba(255,209,102,.08);color:#ffe8a3}@media(max-width:850px){.card,.card.third{grid-column:1/-1}.copyrow{display:block}.copyrow button{margin-top:8px;width:100%}}</style></head><body><div class="wrap"><section class="hero"><div class="badge">Imersão Hermes • instalador assistido</div><h1>Do zero na VPS até o Hermes no Telegram.</h1><p>Ferramenta para aluno leigo: mostra onde pegar IP/SSH na Hostinger, gera comandos prontos, instala Hermes, baixa o kit da imersão e orienta a conexão com Telegram.</p><div class="btns"><a class="btn" href="#instalador">Abrir instalador</a><a class="btn secondary" href="#prints">Ver prints guiados</a><a class="btn secondary" href="#telegram">Telegram</a></div></section><section class="grid"><div class="card full"><h2>Comando único para colar no terminal da VPS</h2><p class="muted">Se o aluno já está dentro da VPS, este é o comando principal:</p><div class="copyrow"><pre id="cmdUnico">curl -fsSL https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/install.sh | bash</pre><button onclick="copy('cmdUnico')">Copiar</button></div><p class="small muted">Esse instalador instala dependências, instala Hermes, cria pastas e baixa o kit da imersão para <code>~/imersao-hermes</code>.</p></div><div class="card full" id="instalador"><h2>Instalador assistido</h2><p class="muted">Preencha o que o aluno pegou na Hostinger/Telegram. A página não envia esses dados para lugar nenhum, só gera comandos no próprio navegador.</p><div class="grid"><div class="card third" style="box-shadow:none;background:var(--card2)"><label>IP da VPS</label><input id="ip" placeholder="ex: 123.45.67.89"></div><div class="card third" style="box-shadow:none;background:var(--card2)"><label>Usuário SSH</label><input id="sshUser" value="root"></div><div class="card third" style="box-shadow:none;background:var(--card2)"><label>Porta SSH</label><input id="port" value="22"></div><div class="card third" style="box-shadow:none;background:var(--card2)"><label>Nome do aluno</label><input id="aluno" placeholder="ex: João"></div><div class="card third" style="box-shadow:none;background:var(--card2)"><label>Telegram user ID</label><input id="tgid" placeholder="ex: 7055031450"></div><div class="card third" style="box-shadow:none;background:var(--card2)"><label>Bot token</label><input id="token" placeholder="não cole em grupo"></div></div><div class="btns"><button class="purple" onclick="gerar()">Gerar comandos</button><button class="secondary" onclick="limpar()">Limpar</button></div><h3 style="margin-top:22px">1. Entrar na VPS pelo terminal do computador</h3><div class="copyrow"><pre id="sshCmd">ssh root@IP_DA_VPS</pre><button onclick="copy('sshCmd')">Copiar</button></div><h3 style="margin-top:18px">2. Instalar Hermes dentro da VPS</h3><div class="copyrow"><pre id="installCmd">curl -fsSL https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/install.sh | bash</pre><button onclick="copy('installCmd')">Copiar</button></div><h3 style="margin-top:18px">3. Próximos comandos dentro da VPS</h3><div class="copyrow"><pre id="nextCmds">hermes setup --portal
+hermes
+hermes gateway setup
+hermes gateway
+hermes gateway install
 hermes gateway start
-hermes gateway status</pre></div></div>
-      </div>
-    </div>
+hermes gateway status</pre><button onclick="copy('nextCmds')">Copiar</button></div><h3 style="margin-top:18px">4. Prompt inicial para o agente</h3><div class="copyrow"><pre id="promptAluno">Leia todos os arquivos da pasta ~/imersao-hermes, começando por ~/imersao-hermes/01_BASE_DO_AGENTE_HERMES.md. Use isso como base operacional deste projeto. Depois me faça 7 perguntas para entender minha oferta, público e meta comercial.</pre><button onclick="copy('promptAluno')">Copiar</button></div></div><div class="card full" id="prints"><h2>Prints guiados: onde pegar cada informação</h2><p class="notice">Observação: os prints do hPanel abaixo são modelos visuais desenhados para aula, baseados no fluxo público da Hostinger. A tela real pode mudar um pouco, mas os nomes principais são VPS, Gerenciar, Visão geral, Detalhes da VPS, Root password e Web Console.</p></div><div class="card"><h3>1. Página da VPS na Hostinger</h3><img class="shot" src="assets/01_hostinger_pagina_vps_anotada.jpg"></div><div class="card"><h3>2. hPanel → VPS → Gerenciar</h3><img class="shot" src="assets/02_hpanel_vps_gerenciar_modelo.jpg"></div><div class="card"><h3>3. Onde pegar IP, usuário e porta SSH</h3><img class="shot" src="assets/03_hpanel_ssh_dados_modelo.jpg"></div><div class="card"><h3>4. Web Console para leigos</h3><img class="shot" src="assets/04_hpanel_web_console_modelo.jpg"></div><div class="card"><h3>5. BotFather no Telegram</h3><img class="shot" src="assets/05_telegram_botfather_modelo.jpg"></div><div class="card"><h3>6. Instalador assistido</h3><img class="shot" src="assets/06_instalador_assistido_modelo.jpg"></div><div class="card full" id="telegram"><h2>Passo a passo Telegram</h2><div class="steps"><div class="step"><div><b>Abrir @BotFather</b><br><span class="muted">Enviar <code>/newbot</code>.</span></div></div><div class="step"><div><b>Nome visível</b><br><span class="muted">Exemplo: Agente João Hermes.</span></div></div><div class="step"><div><b>Username terminando em bot</b><br><span class="muted">Exemplo: joao_hermes_2026_bot.</span></div></div><div class="step"><div><b>Copiar token</b><br><span class="muted">Token é segredo. Não mandar no grupo.</span></div></div><div class="step"><div><b>Pegar user ID</b><br><span class="muted">Abrir @userinfobot e enviar /start.</span></div></div><div class="step"><div><b>Configurar na VPS</b><pre>hermes gateway setup</pre></div></div></div></div><div class="card third"><h3>Comprar VPS barato</h3><p class="muted">Procure plano VPS KVM básico. Para aula: 2 GB RAM funciona, 4 GB RAM é melhor. Ubuntu 22.04/24.04.</p></div><div class="card third"><h3>Para aluno leigo</h3><p class="muted">Use Web Console da Hostinger. Ele abre terminal no navegador e evita configurar SSH local.</p></div><div class="card third"><h3>Segurança</h3><p><span class="pill danger">senha não vai no chat</span><span class="pill danger">token não vai em grupo</span><span class="pill warn">login manual</span></p></div></section></div><script>function val(id){return document.getElementById(id).value.trim()}function set(id,v){document.getElementById(id).textContent=v}function gerar(){const ip=val('ip')||'IP_DA_VPS',user=val('sshUser')||'root',port=val('port')||'22',aluno=val('aluno')||'aluno',tgid=val('tgid')||'TELEGRAM_USER_ID';const ssh=port==='22'?`ssh ${user}@${ip}`:`ssh -p ${port} ${user}@${ip}`;set('sshCmd',ssh);set('installCmd','curl -fsSL https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/install.sh | bash');set('nextCmds',`hermes setup --portal
+hermes
+hermes gateway setup
+# quando pedir, use o Bot Token do ${aluno}
+# allowed user / Telegram user ID: ${tgid}
+hermes gateway
+# se respondeu no Telegram, aperte Ctrl+C e rode:
+hermes gateway install
+hermes gateway start
+hermes gateway status`);set('promptAluno',`Você é o agente operacional particular de ${aluno} rodando na VPS.
 
-    <div class="card third">
-      <h3>Arquivos do kit</h3>
-      <p><span class="pill">01_BASE_DO_AGENTE</span><span class="pill">Guia coordenador</span><span class="pill">Guia aluno</span><span class="pill">Playbook social</span></p>
-      <p class="muted">O mais importante é o arquivo base. Ele transforma o Hermes genérico em agente operacional do aluno.</p>
-    </div>
-    <div class="card third">
-      <h3>Segurança</h3>
-      <p><span class="pill danger">Nunca senha no chat</span><span class="pill danger">Nunca token em grupo</span><span class="pill warn">Aprovar antes de postar</span><span class="pill warn">Sem spam</span></p>
-    </div>
-    <div class="card third">
-      <h3>Entrega mínima</h3>
-      <ul>
-        <li>Hermes instalado</li>
-        <li>Telegram respondendo</li>
-        <li>Kit copiado</li>
-        <li>Agente leu a base</li>
-        <li>Primeira tarefa comercial criada</li>
-      </ul>
-    </div>
+Leia todos os arquivos da pasta ~/imersao-hermes, começando por ~/imersao-hermes/01_BASE_DO_AGENTE_HERMES.md. Use isso como base operacional deste projeto.
 
-    <div class="card full" id="prompts">
-      <h2>Prompt para primeiro chat do agente</h2>
-      <pre>Você é meu agente operacional particular rodando na minha VPS.
+Regras: não envie mensagem, publique, curta, siga ou comente sem autorização; nunca peça senha ou 2FA no chat; quando precisar de login, abra o navegador e eu faço manualmente; não faça spam; se algo falhar, diga o erro real.
 
-Leia todos os arquivos da pasta ~/imersao-hermes, começando por:
-~/imersao-hermes/01_BASE_DO_AGENTE_HERMES.md
-
-Use isso como base operacional deste projeto.
-
-Regras:
-- não envie mensagem, publique, curta, siga ou comente sem minha autorização;
-- nunca peça senha ou código 2FA no chat;
-- quando precisar de login, abra o navegador e eu faço manualmente;
-- não faça spam;
-- se algo falhar, diga o erro real;
-- trabalhe uma etapa por vez quando envolver conta externa.
-
-Primeiro, me faça 7 perguntas para entender minha oferta, público, cidade/região, ticket, principais produtos, redes sociais e meta comercial para os próximos 7 dias.</pre>
-    </div>
-
-    <div class="card">
-      <h3>Prompt de prospecção</h3>
-      <pre>Minha oferta é [oferta]. Meu público é [público]. Minha região é [cidade]. Quero que você monte minha primeira base com 20 leads públicos, qualifique cada um e escreva mensagens personalizadas. Não envie nada ainda.</pre>
-    </div>
-    <div class="card">
-      <h3>Prompt de social selling</h3>
-      <pre>Abra o Instagram no navegador. Eu vou fazer login manualmente. Depois analise o perfil @perfil_relacionado e me traga 10 perfis com fit para minha oferta. Não curta, siga ou comente sem eu aprovar.</pre>
-    </div>
-
-    <div class="card full">
-      <h2>Diagnóstico rápido</h2>
-      <p><b>Bot não responde:</b></p>
-      <pre>hermes gateway status
-hermes gateway</pre>
-      <p><b>Ver logs:</b></p>
-      <pre>tail -f ~/.hermes/logs/gateway.log</pre>
-      <p><b>Reconfigurar Telegram:</b></p>
-      <pre>hermes gateway setup</pre>
-    </div>
-  </section>
-</div>
-</body>
-</html>
+Primeiro, me faça 7 perguntas para entender minha oferta, público, cidade/região, ticket, principais produtos, redes sociais e meta comercial para os próximos 7 dias.`)}async function copy(id){const txt=document.getElementById(id).textContent;await navigator.clipboard.writeText(txt);alert('Copiado')}function limpar(){['ip','sshUser','port','aluno','tgid','token'].forEach(id=>{if(id==='sshUser')document.getElementById(id).value='root';else if(id==='port')document.getElementById(id).value='22';else document.getElementById(id).value=''});gerar()}gerar();</script></body></html>
