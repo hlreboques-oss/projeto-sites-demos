@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-KIT_URL="https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/imersao-hermes-0913.tar.gz"
+KIT_URL="https://raw.githubusercontent.com/hlreboques-oss/projeto-sites-demos/main/imersao-hermes-0913/imersao-hermes-0913.tar.gz"
 
 printf '\n=== Instalador Hermes VPS - Imersao ===\n\n'
 
