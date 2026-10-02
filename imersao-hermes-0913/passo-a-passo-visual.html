@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Passo a passo visual Hermes</title>
+<style>
+:root{--bg:#070911;--card:#111827;--line:#273247;--text:#f2f6ff;--muted:#aab6cc;--green:#8df3c5;--blue:#8aa7ff;--yellow:#ffd166;--red:#ff7b7b;--purple:#714bff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#243b67 0,#070911 42%,#04050a 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}.wrap{max-width:1180px;margin:auto;padding:28px 16px 80px}h1{font-size:clamp(34px,6vw,68px);line-height:.95;margin:18px 0;letter-spacing:-.05em}h2{font-size:clamp(26px,4vw,42px);margin:0 0 10px}h3{font-size:24px;margin:0 0 10px}.muted{color:var(--muted)}a{color:var(--green)}.hero{padding:28px 0}.badge{display:inline-block;color:var(--green);border:1px solid rgba(141,243,197,.35);background:rgba(141,243,197,.08);padding:8px 12px;border-radius:999px;font-weight:900}.step{background:rgba(17,24,39,.9);border:1px solid var(--line);border-radius:28px;padding:24px;margin:18px 0;box-shadow:0 24px 80px rgba(0,0,0,.28)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{background:#0b1220;border:1px solid #263044;border-radius:20px;padding:16px}.human{border-color:rgba(255,209,102,.45)}.machine{border-color:rgba(141,243,197,.45)}.shot{width:100%;border-radius:20px;border:1px solid #344158;background:#0a0a0a;margin-top:14px}.btns{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;background:#fff;color:#07111f;text-decoration:none;font-weight:900}.btn.secondary{background:rgba(255,255,255,.08);color:var(--text);border:1px solid rgba(255,255,255,.16)}pre{white-space:pre-wrap;overflow:auto;background:#050913;border:1px solid #263044;border-radius:16px;color:#dfffe9;padding:14px}code{background:#050913;border:1px solid #263044;border-radius:8px;padding:2px 6px}.pill{display:inline-block;padding:6px 10px;border-radius:999px;margin:3px;background:rgba(138,167,255,.12);border:1px solid rgba(138,167,255,.3);font-size:14px}.warn{background:rgba(255,209,102,.1);border-color:rgba(255,209,102,.4)}.ok{background:rgba(141,243,197,.1);border-color:rgba(141,243,197,.4)}.danger{background:rgba(255,123,123,.1);border-color:rgba(255,123,123,.4)}@media(max-width:820px){.grid{grid-template-columns:1fr}.step{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <div class="badge">Passo a passo visual da imersão</div>
+  <h1>O que clicar, onde copiar e qual comando colar.</h1>
+  <p class="muted">Use esta página na aula. Cada etapa mostra: link que o humano abre, imagem da tela, o que copiar e o que a máquina executa.</p>
+  <div class="btns">
+    <a class="btn" href="https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/">Voltar ao instalador</a>
+    <a class="btn secondary" href="#chatgpt">Conexão ChatGPT/Codex</a>
+    <a class="btn secondary" href="#telegram">Telegram</a>
+  </div>
+</section>
+
+<section class="step">
+  <h2>1. Comprar ou abrir a VPS</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <p>Abre o link da Hostinger, escolhe um plano VPS KVM e finaliza a compra.</p>
+      <p><a class="btn" href="https://www.hostinger.com.br/vps-hosting" target="_blank" rel="noopener">Abrir Hostinger VPS</a></p>
+      <p><span class="pill warn">clique</span><span class="pill warn">contratação</span><span class="pill warn">login hPanel</span></p>
+    </div>
+    <div class="box machine">
+      <h3>Máquina faz</h3>
+      <p>Nada ainda. Aqui é só compra/acesso humano.</p>
+    </div>
+  </div>
+  <img class="shot" src="assets/01_hostinger_pagina_vps_anotada.jpg" />
+</section>
+
+<section class="step">
+  <h2>2. Entrar no hPanel e clicar em VPS → Gerenciar</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <ol><li>Entra na conta da Hostinger.</li><li>Clica em <b>VPS</b>.</li><li>Encontra a VPS criada.</li><li>Clica em <b>Gerenciar</b>.</li></ol>
+    </div>
+    <div class="box machine"><h3>Máquina faz</h3><p>Nada ainda. Ainda estamos pegando acesso.</p></div>
+  </div>
+  <img class="shot" src="assets/02_hpanel_vps_gerenciar_modelo.jpg" />
+</section>
+
+<section class="step">
+  <h2>3. Pegar IP, usuário SSH e porta</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano copia</h3>
+      <ul><li><b>IP da VPS</b></li><li><b>Usuário SSH</b>, normalmente <code>root</code></li><li><b>Porta SSH</b>, normalmente <code>22</code></li></ul>
+      <p>Esses dados entram no instalador assistido.</p>
+    </div>
+    <div class="box machine">
+      <h3>Máquina gera</h3>
+      <p>Com esses dados, a página monta o comando:</p>
+      <pre>ssh root@IP_DA_VPS</pre>
+    </div>
+  </div>
+  <img class="shot" src="assets/03_hpanel_ssh_dados_modelo.jpg" />
+</section>
+
+<section class="step">
+  <h2>4. Opção mais fácil: Web Console da Hostinger</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <p>Se o aluno não sabe usar terminal no computador, manda abrir <b>Web Console</b> ou <b>Terminal</b> dentro da Hostinger.</p>
+    </div>
+    <div class="box machine">
+      <h3>Máquina recebe</h3>
+      <p>Com o console aberto, o aluno cola o comando de instalação:</p>
+      <pre>curl -fsSL https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/install.sh | bash</pre>
+    </div>
+  </div>
+  <img class="shot" src="assets/04_hpanel_web_console_modelo.jpg" />
+</section>
+
+<section class="step">
+  <h2>5. Colar o instalador Hermes na VPS</h2>
+  <div class="grid">
+    <div class="box human"><h3>Humano faz</h3><p>Copia o comando abaixo e cola no terminal/Web Console da VPS.</p></div>
+    <div class="box machine"><h3>Máquina faz</h3><ul><li>Instala dependências</li><li>Instala Hermes</li><li>Cria pastas</li><li>Baixa o kit da imersão</li></ul></div>
+  </div>
+  <pre>curl -fsSL https://hlreboques-oss.github.io/projeto-sites-demos/imersao-hermes-0913/install.sh | bash</pre>
+</section>
+
+<section class="step" id="chatgpt">
+  <h2>6. Conectar LLM: ChatGPT/Codex por OAuth, não API</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <p>Para usar assinatura ChatGPT/Codex no Hermes, o caminho certo é pelo provider <b>OpenAI Codex</b>, com login OAuth/device code.</p>
+      <p><span class="pill danger">não é OpenAI API key</span><span class="pill ok">é hermes model</span><span class="pill ok">ChatGPT or Codex Subscription</span></p>
+      <p>Quando o Hermes mostrar um link/código, o aluno abre no navegador, faz login e autoriza.</p>
+    </div>
+    <div class="box machine">
+      <h3>Máquina faz</h3>
+      <p>Rode na VPS:</p>
+      <pre>hermes model</pre>
+      <p>Escolher:</p>
+      <pre>ChatGPT or Codex Subscription / OpenAI Codex</pre>
+      <p>Alternativa avançada, se precisar forçar login pelo navegador:</p>
+      <pre>hermes auth add openai-codex --browser</pre>
+    </div>
+  </div>
+  <p class="muted">Correção importante para a aula: OpenAI API Key é outra opção, separada e paga por token. Para assinatura ChatGPT/Codex, o passo certo é OAuth/device code pelo <code>hermes model</code>.</p>
+</section>
+
+<section class="step">
+  <h2>7. Opção grátis/barata: OpenRouter + Nemotron</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <ol><li>Abre OpenRouter Keys.</li><li>Cria chave.</li><li>Escolhe modelo gratuito, se disponível.</li></ol>
+      <p><a class="btn" href="https://openrouter.ai/keys" target="_blank" rel="noopener">OpenRouter Keys</a> <a class="btn secondary" href="https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free" target="_blank" rel="noopener">Nemotron grátis</a></p>
+    </div>
+    <div class="box machine">
+      <h3>Máquina faz</h3>
+      <pre>hermes model</pre>
+      <p>Escolher OpenRouter e usar modelo:</p>
+      <pre>nvidia/nemotron-3-ultra-550b-a55b:free</pre>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="telegram">
+  <h2>8. Criar bot no Telegram</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <ol><li>Abre o BotFather.</li><li>Envia <code>/newbot</code>.</li><li>Escolhe nome.</li><li>Escolhe username terminando em <code>bot</code>.</li><li>Copia o token.</li></ol>
+      <p><a class="btn" href="https://t.me/BotFather" target="_blank" rel="noopener">Abrir BotFather</a></p>
+    </div>
+    <div class="box machine"><h3>Máquina faz</h3><p>Nada ainda. O token será usado no <code>hermes gateway setup</code>.</p></div>
+  </div>
+  <img class="shot" src="assets/05_telegram_botfather_modelo.jpg" />
+</section>
+
+<section class="step">
+  <h2>9. Pegar Telegram user ID</h2>
+  <div class="grid">
+    <div class="box human">
+      <h3>Humano faz</h3>
+      <ol><li>Abre o userinfobot.</li><li>Envia <code>/start</code>.</li><li>Copia o ID numérico.</li></ol>
+      <p><a class="btn" href="https://t.me/userinfobot" target="_blank" rel="noopener">Abrir userinfobot</a></p>
+    </div>
+    <div class="box machine"><h3>Máquina usa</h3><p>Esse ID vira o usuário autorizado no Telegram.</p></div>
+  </div>
+</section>
+
+<section class="step">
+  <h2>10. Configurar Telegram no Hermes</h2>
+  <div class="grid">
+    <div class="box human"><h3>Humano informa</h3><ul><li>Token do BotFather</li><li>Telegram user ID</li></ul></div>
+    <div class="box machine"><h3>Máquina configura</h3><pre>hermes gateway setup</pre><p>Depois testa:</p><pre>hermes gateway</pre><p>Se respondeu, deixa permanente:</p><pre>hermes gateway install
+hermes gateway start
+hermes gateway status</pre></div>
+  </div>
+</section>
+
+<section class="step">
+  <h2>11. Primeiro comando para o agente</h2>
+  <p>Depois que o bot responder no Telegram, o aluno manda:</p>
+  <pre>Leia todos os arquivos da pasta ~/imersao-hermes, começando por ~/imersao-hermes/01_BASE_DO_AGENTE_HERMES.md. Use isso como base operacional deste projeto. Depois me faça 7 perguntas para entender minha oferta, público e meta comercial.</pre>
+</section>
+
+</div>
+</body>
+</html>
